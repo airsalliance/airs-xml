@@ -39,16 +39,16 @@
 		<xs:sequence>
 			<xs:element name="Key" type="xs:nonNegativeInteger">
 				<xs:annotation>
-					<xs:documentation>This is an optional unique number representing a vendor's internal way of tracking an agency. This can be used as meta data to uniquely describe an Agency</xs:documentation>
+					<xs:documentation>This is an unique number representing a vendor's internal way of tracking an agency. This can be used as meta data to uniquely describe an Agency</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Name" type="xs:string" minOccurs="0"/>
+			<xs:element name="Name" type="xs:string"/>
 			<xs:element name="AgencyDescription" type="xs:string" minOccurs="0"/>
 			<xs:element name="AKA" type="tAKA" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="AgencyLocation" type="tSite" minOccurs="0"/>
 			<xs:element name="Phone" type="tPhone" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="URL" type="tURL" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="SocialMedia" type="tSocialMedia" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="InternetResource" type="tInternetResource" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Email" type="tEMail" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Contact" type="tContact" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="LicenseAccreditation" type="tLicenseAccreditation" minOccurs="0" maxOccurs="unbounded"/>
@@ -56,7 +56,6 @@
 			<xs:element name="ServiceGroup" type="tServiceGroup" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Site" type="tSite" block="#all" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="ResourceInfo" type="tResourceInfo" block="#all" minOccurs="0"/>
-			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Agency" type="tAgency" block="#all" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
@@ -118,7 +117,7 @@
 	</xs:complexType>
 	<xs:complexType name="tApplicationProcess">
 		<xs:annotation>
-			<xs:documentation>element tSiteService</xs:documentation>
+			<xs:documentation>element of tSiteService</xs:documentation>
 			<xs:documentation>ApplicationProcess describes the steps taken to apply for or access the service; also known as the ‘intake process’.For example, “Call for an appointment” or “Walk in only” </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
@@ -210,7 +209,6 @@
 			<xs:element name="State" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Country" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Description" type="xs:string" minOccurs="0"/>
-			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="tLanguages">
@@ -360,6 +358,7 @@
 			<xs:element name="CrossStreet" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Phone" type="tPhone" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="URL" type="tURL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="InternetResource" type="tInternetResource" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Email" type="tEMail" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Contact" type="tContact" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="TimeOpen" type="tTimeOpen" minOccurs="0" maxOccurs="unbounded"/>
@@ -397,6 +396,7 @@
 			<xs:element name="Languages" type="tLanguages" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="GeographicAreaServed" type="tGeographicAreaServed" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="ResourceInfo" type="tResourceInfo" minOccurs="0"/>
+			<xs:element name="InternetResource" type="tInternetResource" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="DocumentsRequired" type="tDocumentsRequired" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="ApplicationProcess" type="tApplicationProcess" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="FeeStructure" type="xs:string" minOccurs="0"/>
@@ -411,7 +411,6 @@
 			<xs:element name="FamilyRequirements" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="IncomeRequirements" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="ResidencyRequirements" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attributeGroup ref="deleteStampGroup"/>
 		<xs:attribute name="Status" type="tStatus"/>
@@ -422,16 +421,16 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<xs:complexType name="tSocialMedia">
+	<xs:complexType name="tInternetResource">
 		<xs:sequence minOccurs="0" maxOccurs="unbounded">
-			<xs:element name="SocialMediaHandle" type="xs:string" minOccurs="0">
+			<xs:element name="URL" type="xs:string" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Can be a url or a non-url handle used to locate it within the various social media.</xs:documentation>
+					<xs:documentation>url used to locate it.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Note" type="xs:string" minOccurs="0">
+			<xs:element name="Description" type="xs:string" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A text field to provide further information about the social media handle above it.</xs:documentation>
+					<xs:documentation>A text field to provide further information about the Internet Resource URL above it.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -464,20 +463,8 @@
 					<xs:documentation>A datum also defines the association of latitude and longitude coordinates to points on the surface of the earth, there is more than one way to do this</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Latitude">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:pattern value="[+|-]\d+\.\d+"/>
-							</xs:restriction>		
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="Longitude">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:pattern value="[+|-]\d+\.\d+"></xs:pattern>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
+			<xs:element name="Latitude" type="tLatitude"/>
+			<xs:element name="Longitude" type="tLongitude"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="tTaxonomy">
@@ -523,6 +510,16 @@
 			<xs:element name="Note" type="xs:string" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:simpleType name="tLatitude">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[+|-]\d+\.\d+"/>
+		</xs:restriction>		
+	</xs:simpleType>
+	<xs:simpleType name="tLongitude">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[+|-]\d+\.\d+"></xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="tStatus">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="active"/>
