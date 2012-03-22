@@ -110,7 +110,7 @@
 			<xs:documentation>element of tAgency and tSite</xs:documentation>
 			<xs:documentation>These are alternate names for an object, Confidential indicates that the alternate name won't be shared with the public </xs:documentation>
 		</xs:annotation>
-		<xs:sequence  minOccurs="0">
+		<xs:sequence minOccurs="0">
 			<xs:element name="Name" type="xs:string" minOccurs="0"/>
 			<xs:element name="Confidential" type="xs:boolean" minOccurs="0"/>
 			<xs:element name="Description" type="xs:string" minOccurs="0"/>
@@ -134,7 +134,7 @@
 				2) Contact is also used by ResourceInfo to indicate the person within each agency who has overall responsibility for updating the information about the agency, its sites and its services, etc.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence  minOccurs="0">
+		<xs:sequence minOccurs="0">
 			<xs:element name="Title" type="xs:string" minOccurs="0"/>
 			<xs:element name="Name" type="xs:string" minOccurs="0"/>
 			<xs:element name="Email" type="tEMail" minOccurs="0" maxOccurs="unbounded"/>
@@ -151,7 +151,7 @@
 			<xs:documentation>element of tTimeOpen</xs:documentation>
 			<xs:documentation>This can be used for any day of the week</xs:documentation>
 		</xs:annotation>
-		<xs:sequence  minOccurs="0" maxOccurs="unbounded">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
 			<xs:element name="From" type="xs:time" minOccurs="0"/>
 			<xs:element name="To" type="xs:time" minOccurs="0"/>
 		</xs:sequence>
@@ -474,7 +474,7 @@
 			<xs:element name="Longitude">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
-						<xs:pattern value="[+|-]\d+\.\d+"></xs:pattern>
+						<xs:pattern value="[+|-]\d+\.\d+"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -486,7 +486,7 @@
 			<xs:documentation>Taxonomy Codes are a structured system created by AIRS/INFO Line to index human services</xs:documentation>
 		</xs:annotation>
 		<xs:sequence minOccurs="0">
-			<xs:element name="Code" type="xs:string"  minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Code" type="xs:string" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>No checking is done at the XSD, verify validity of codes before export!</xs:documentation>
 				</xs:annotation>
@@ -514,7 +514,7 @@
 			<xs:documentation>element of tAgency and tSite</xs:documentation>
 			<xs:documentation>URL (Web Address): restricted by regular expression, see www.regexlib.com</xs:documentation>
 		</xs:annotation>
-		<xs:sequence  minOccurs="0">
+		<xs:sequence minOccurs="0">
 			<xs:element name="Address" type="xs:string" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>No checking is done at the XSD, verify validity of url before export! also allows for ftp now</xs:documentation>
