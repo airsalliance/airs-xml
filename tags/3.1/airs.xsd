@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://www.airs.org/schema/3_1/AIRS.xsd" xmlns="http://www.airs.org/schema/3_1/AIRS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.1">
+	<xs:annotation>
+		<xs:documentation>AIRS XML Data Transfer Record Format Version 3.1 (Final)</xs:documentation>
+		<xs:documentation>unless set, the default minOccurs="1" maxOccurs="1"</xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="tAddress">
+		<xs:annotation>
+			<xs:documentation>element of tSite</xs:documentation>
+			<xs:documentation>One type of Address to cover all locations. US, Canadian and other addresses are handled the same way.</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:sequence minOccurs="0">
+				<xs:element name="PreAddressLine" type="xs:string" minOccurs="0"/>
+				<xs:element name="Line1" type="xs:string" minOccurs="0"/>
+				<xs:element name="Line2" type="xs:string" minOccurs="0"/>
+				<xs:element name="City" type="xs:string" minOccurs="0"/>
+				<xs:element name="County" type="xs:string" minOccurs="0"/>
+				<xs:element name="State" type="xs:string" minOccurs="0"/>
+				<xs:element name="ZipCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="Country" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+			<xs:sequence>
+				<xs:element name="ReasonWithheld" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Use this if the address can not be shared due to security concerns, such as an assaulted women's shelter. While it is possible to code an address as Confidential="true", in this case the address is so confidential that it won't be shared at all.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:choice>
+		<xs:attribute name="Confidential" type="xs:boolean" use="required"/>
+		<xs:attribute name="Description" type="xs:string" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="tAgency">
+		<xs:annotation>
+			<xs:documentation>element of Source and tAgency</xs:documentation>
+			<xs:documentation>Agencies are organizations that offer services at locations. Agencies provide services directly or they may have "child" agencies that offer these services. Services are offered at sites that belong to an agency. Services are represented by the combination of taxonomy codes offered at a location; this idea is called a SiteService. To recap: Agencies don't provide services directly, they provide them through sites.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Key" type="xs:nonNegativeInteger">
+				<xs:annotation>
+					<xs:documentation>This is a unique number representing a vendor's internal way of tracking an agency. This can be used as meta data to uniquely describe an Agency.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="AgencyDescription" type="xs:string" minOccurs="0"/>
+			<xs:element name="AKA" type="tAKA" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AgencyLocation" type="tSite" minOccurs="0"/>
+			<xs:element name="Phone" type="tPhone" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="URL" type="tURL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="InternetResource" type="tInternetResource" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Email" type="tEMail" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Contact" type="tContact" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="LicenseAccreditation" type="tLicenseAccreditation" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="IRSStatus" type="xs:string" minOccurs="0"/>
+			<xs:element name="ServiceGroup" type="tServiceGroup" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Site" type="tSite" block="#all" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ResourceInfo" type="tResourceInfo" block="#all" minOccurs="0"/>
+			<xs:element name="Agency" type="tAgency" block="#all" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Agency Definition: Parent/Child relationships are handled through recursion. Agency elements within another agency (the parent) are child agencies--that is, they belong to a parent agency: e.g. Transportation Security Administration (TSA) is a child of Homeland Security. Therefore, TSA and all associated Sites can be created inside the Homeland Security Agency element.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="deleteStampGroup"/>
+		<xs:attribute name="RecordOwner">
+			<xs:annotation>
+				<xs:documentation>This is a unique string indicating the organization that created and maintains this Agency record.</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:pattern value="[0-9A-Z]{4,8}"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="FEIN" type="xs:string"/>
+		<xs:attribute name="YearInc" type="xs:gYear"/>
+		<xs:attribute name="Status" type="tStatus"/>
+		<xs:attribute name="LegalStatus" type="xs:string"/>
+		<xs:attribute name="ExcludeFromWebsite" type="xs:boolean"/>
+		<xs:attribute name="ExcludeFromDirectory" type="xs:boolean"/>
+	</xs:complexType>
+	<xs:complexType name="tAgeRequirements">
+		<xs:annotation>
+			<xs:documentation>element of tSiteService</xs:documentation>
+			<xs:documentation>Information about any age or gender related requirements or inclusions for a particular service at a particular location.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="Gender">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Male"/>
+							<xs:enumeration value="Female"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="MinimumAge" type="xs:nonNegativeInteger"/>
+				<xs:attribute name="MaximumAge" type="xs:nonNegativeInteger"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="tAKA">
+		<xs:annotation>
+			<xs:documentation>element of tAgency and tSite</xs:documentation>
+			<xs:documentation>These are alternate names for an object. Confidential indicates that the alternate name won't be shared with the public.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence  minOccurs="0">
+			<xs:element name="Name" type="xs:string" minOccurs="0"/>
+			<xs:element name="Confidential" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="Description" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tApplicationProcess">
+		<xs:annotation>
+			<xs:documentation>element of tSiteService</xs:documentation>
+			<xs:documentation>ApplicationProcess describes the steps taken to apply for or access the service; also known as the 'intake process'. For example, "Call for an appointment" or "Walk in only".</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Step" type="xs:string" minOccurs="0"/>
+			<xs:element name="Description" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tContact">
+		<xs:annotation>
+			<xs:documentation>element of tAgency, tResourceInfo and tSite</xs:documentation>
+			<xs:documentation>
+				1) Contact is the person at an Agency, or Site who will interface with the public or who has responsibility for the entity, like a site manager or director.
+				2) Contact is also used by ResourceInfo to indicate the person within each agency who has overall responsibility for updating the information about the agency, its sites and its services, etc.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence  minOccurs="0">
+			<xs:element name="Title" type="xs:string" minOccurs="0"/>
+			<xs:element name="Name" type="xs:string" minOccurs="0"/>
+			<xs:element name="Email" type="tEMail" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Phone" type="tPhone" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="Type" type="xs:string" use="required">
+				<xs:annotation>
+					<xs:documentation>This is the type of contact; for example, an Administrator or Owner.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="tDay">
+		<xs:annotation>
+			<xs:documentation>element of tTimeOpen</xs:documentation>
+			<xs:documentation>This can be used for any day of the week.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence  minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="From" type="xs:time" minOccurs="0"/>
+			<xs:element name="To" type="xs:time" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tDocumentsRequired">
+		<xs:annotation>
+			<xs:documentation>element of tSiteService</xs:documentation>
+			<xs:documentation>A document that is required in order to access services offered at a SiteService.</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="DocumentsRequired" type="xs:string" minOccurs="0"/>
+				<xs:element name="Description" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tEMail">
+		<xs:annotation>
+			<xs:documentation>element of tAgency, tContact, and tSite</xs:documentation>
+				<xs:documentation>
+					Email Address: restricted by regular expression, see www.regexlib.com
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="Address" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="[^@\s]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6}"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			<xs:element name="Note" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tGeographicAreaServed">
+		<xs:annotation>
+			<xs:documentation>element of tSiteService</xs:documentation>
+			<xs:documentation>
+				This is the geographic area served by the SiteService. This can be anything from a single neighborhood to an entire country. Types can also be mixed; perhaps one city and 6 nearby ZIP codes. In this case the required element would be City and there would be additional ZIP codes. A national 1-800 hotline would have one Country element.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence minOccurs="0">
+			<xs:choice>
+				<xs:annotation>
+					<xs:documentation>At least one of the following must be selected. Then any number of additional elements can be included.</xs:documentation>
+				</xs:annotation>
+				<xs:element name="ZipCode" type="xs:string"/>
+				<xs:element name="CensusTrack" type="xs:string"/>
+				<xs:element name="City" type="xs:string"/>
+				<xs:element name="County" type="xs:string"/>
+				<xs:element name="State" type="xs:string"/>
+				<xs:element name="Country" type="xs:string"/>
+			</xs:choice>
+			<xs:element name="ZipCode" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="CensusTrack" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="City" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="County" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="State" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Country" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Description" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tLanguages">
+		<xs:annotation>
+			<xs:documentation>element of tSite and tSiteService</xs:documentation>
+			<xs:documentation>Language spoken and the TimeOpen the language is available.</xs:documentation>
+		</xs:annotation>
+			<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="Name" type="xs:string" minOccurs="0"/>
+				<xs:element name="TimeOpen" type="tTimeOpen" minOccurs="0"/>
+				<xs:element name="Notes" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tLicenseAccreditation">
+		<xs:annotation>
+			<xs:documentation>element of tAgency</xs:documentation>
+			<xs:documentation>If applicable, information about the license/accreditation held by the agency and the body that licensed/accredited it.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="License" type="xs:string" minOccurs="0"/>
+			<xs:element name="LicensedBy" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tNoPhysicalAddress">
+		<xs:annotation>
+			<xs:documentation>element of tSite</xs:documentation>
+			<xs:documentation>This is something without a physical presence; Description is what the entity is/does, and Explanation is why is doesn't have a physical presence.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Description" type="xs:string" minOccurs="0"/>
+			<xs:element name="Explanation" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tPhone">
+		<xs:annotation>
+			<xs:documentation>element of tAgency, tContact, tSite and tSiteService</xs:documentation>
+			<xs:documentation>Phone numbers</xs:documentation>
+		</xs:annotation>
+		<xs:sequence minOccurs="0">
+			<xs:choice>
+				<xs:sequence>
+					<xs:element name="PhoneNumber" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+				<xs:sequence>
+					<xs:element name="ReasonWithheld" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Use this if the phone can not be shared due to security concerns, such as a spousal abuse group home. While it is possible to code a phone as Confidential="true", in this case the phone is so confidential that it won't be shared at all.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:choice>
+			<xs:element name="Extension" type="xs:string" minOccurs="0"/>
+			<xs:element name="Description" type="xs:string" minOccurs="0"/>
+			<xs:element name="Type" type="xs:string" minOccurs="0"/>
+			<xs:element name="Function" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="TollFree" type="xs:boolean" use="required"/>
+		<xs:attribute name="Confidential" type="xs:boolean" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="tResourceInfo">
+		<xs:annotation>
+			<xs:documentation>element of tAgency and tSiteService</xs:documentation>
+			<xs:documentation>information about the data</xs:documentation>
+		</xs:annotation>
+		<xs:sequence minOccurs="0">
+			<xs:element name="Contact" type="tContact" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ResourceSpecialist" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>This is a person who created/maintains the data</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="AvailableForDirectory" type="xs:boolean"/>
+		<xs:attribute name="AvailableForReferral" type="xs:boolean"/>
+		<xs:attribute name="AvailableForResearch" type="xs:boolean"/>
+		<xs:attribute name="DateAdded" type="xs:date"/>
+		<xs:attribute name="DateLastVerified" type="xs:date"/>
+		<xs:attribute name="DateOfLastAction" type="xs:date"/>
+		<xs:attribute name="LastActionType" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="tSeasonal">
+		<xs:annotation>
+			<xs:documentation>element of tSiteService</xs:documentation>
+				<xs:documentation>Activities that are only offered a certain time of year, such as seasonal tax preparation, summer camps and holiday meals.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence minOccurs="0">
+			<xs:element name="Description" type="xs:string" minOccurs="0"/>
+			<xs:element name="StartDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="EndDate" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tServiceGroup">
+		<xs:annotation>
+			<xs:documentation>element of tAgency</xs:documentation>
+			<xs:documentation>Service Groups are a way to group related services, which may be sometimes but not necessarily be known as "Programs". However, not all vendors implement this. This will provide a key that can be added to SiteService.ServiceGroupKey so that multiple SiteServices can belong to the same ServiceGroup.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence minOccurs="0">
+			<xs:element name="Key" type="xs:nonNegativeInteger">
+				<xs:annotation>
+					<xs:documentation>This number is used by a SiteService to know what ServiceGroup it is part of (if any). This must be unique between all child agencies.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Name" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Required name and used internally. May be the same as the ProgramName.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ProgramName" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Optional, publicly visible name. e.g. Headstart</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tSite">
+		<xs:annotation>
+			<xs:documentation>element of tAgency</xs:documentation>
+			<xs:documentation>Sites are physical locations or none physical locations (a website or hotline). Site is used for two purposes. First, it is used by Agency to provide the location of the agency in Agency.AgencyLocation (note this type of Site would never have any SiteService children). Second, sites are also the location where services are provided. This would be the Agency.Site element (note this type of Site would have SiteService children).</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Key" type="xs:nonNegativeInteger">
+				<xs:annotation>
+					<xs:documentation>This is a unique number representing a vendor's internal way of tracking a Site. It can be used as meta data to uniquely describe a Site</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgencyKey" type="xs:nonNegativeInteger" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>This is a unique number referring back to the parent Agency.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Name" type="xs:string" minOccurs="0"/>
+			<xs:element name="SiteDescription" type="xs:string" minOccurs="0"/>
+			<xs:element name="AKA" type="tAKA" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:choice>
+				<xs:sequence minOccurs="0">
+					<xs:element name="PhysicalAddress" type="tAddress" minOccurs="0"/>
+					<xs:element name="MailingAddress" type="tAddress" minOccurs="0"/>
+				</xs:sequence>
+				<xs:sequence minOccurs="0">
+					<xs:element name="NoPhysicalAddress" type="tNoPhysicalAddress" minOccurs="0"/>
+				</xs:sequence>
+			</xs:choice>
+			<xs:element name="OtherAddress" type="tAddress" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="CrossStreet" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Phone" type="tPhone" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="URL" type="tURL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="InternetResource" type="tInternetResource" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Email" type="tEMail" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Contact" type="tContact" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="TimeOpen" type="tTimeOpen" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Languages" type="tLanguages" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="DisabilitiesAccess" type="xs:string" minOccurs="0"/>
+			<xs:element name="PhysicalLocationDescription" type="xs:string" minOccurs="0"/>
+			<xs:element name="BusServiceAccess" type="xs:string" minOccurs="0"/>
+			<xs:element name="SiteService" type="tSiteService" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="SpatialLocation" type="tSpatialLocation" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="deleteStampGroup"/>
+		<xs:attribute name="Status" type="tStatus"/>
+		<xs:attribute name="PublicAccessToTransportation" type="xs:boolean"/>
+		<xs:attribute name="ExcludeFromWebsite" type="xs:boolean"/>
+		<xs:attribute name="ExcludeFromDirectory" type="xs:boolean"/>
+	</xs:complexType>
+	<xs:complexType name="tSiteService">
+		<xs:annotation>
+			<xs:documentation>element of tSite</xs:documentation>
+			<xs:documentation>SiteService is the smallest unit describing a "service" that is offered at a Site. It can be thought of as the intersection of a Site and a Taxonomy code (or related Taxonomy codes) and meta data about what is offered. A "Service" however is not represented as its own element because the "Service" cannot exist without a location (the site).</xs:documentation>
+		</xs:annotation>
+		<xs:sequence minOccurs="0">
+			<xs:element name="Name" type="xs:string" minOccurs="0"/>
+			<xs:element name="Key" type="xs:nonNegativeInteger">
+				<xs:annotation>
+					<xs:documentation>This is a unique number representing a vendor's internal way of tracking a SiteService. It can be used as meta data to uniquely describe a SiteService.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Description" type="xs:string" minOccurs="0"/>
+			<xs:element name="Phone" type="tPhone" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="TimeOpen" type="tTimeOpen" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Seasonal" type="tSeasonal" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Taxonomy" type="tTaxonomy" maxOccurs="unbounded"/>
+			<xs:element name="Languages" type="tLanguages" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="GeographicAreaServed" type="tGeographicAreaServed" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ResourceInfo" type="tResourceInfo" minOccurs="0"/>
+			<xs:element name="InternetResource" type="tInternetResource" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="DocumentsRequired" type="tDocumentsRequired" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ApplicationProcess" type="tApplicationProcess" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="FeeStructure" type="xs:string" minOccurs="0"/>
+			<xs:element name="PaymentMethodAccepted" type="xs:string" minOccurs="0"/>
+			<xs:element name="GeneralEligibility" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>General eligibility is an area to list any eligibility requirements for participation or services. This can include any exclusions, both negative and positive requirements (i.e. must have/ can't have are all requirements)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgeRequirements" type="tAgeRequirements" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="GenderRequirements" type="xs:string" minOccurs="0"/>
+			<xs:element name="FamilyRequirements" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="IncomeRequirements" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ResidencyRequirements" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="deleteStampGroup"/>
+		<xs:attribute name="Status" type="tStatus"/>
+		<xs:attribute name="ServiceNotAlwaysAvailable" type="xs:boolean"/>
+		<xs:attribute name="ServiceGroupKey" type="xs:nonNegativeInteger">
+			<xs:annotation>
+				<xs:documentation>An optional value linking this SiteService to a ServiceGroup (Program)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="tInternetResource">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="URL" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The URL used to locate it.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Description" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A text field to provide further information about the Internet Resource URL above it.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tSourceType">
+		<xs:sequence>
+			<xs:element name="Agency" type="tAgency" block="#all" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="SourceEntity" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>This is a description of the sources of data used in the data dump. If multiples sources of data are used, include them here. Any RecordOwner codes used should be listed here as well.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="SourceID" type="xs:string" use="required"/>
+		<xs:attribute name="OriginTimestamp" type="xs:dateTime" use="required"/>
+		<xs:attribute name="SoftwareVendor" type="xs:string" use="required"/>
+		<xs:attribute name="SoftwareVersion" type="xs:string" use="required"/>
+		<xs:attribute name="TaxonomyVersion" type="xs:dateTime" use="required"/>
+		<xs:attribute name="SchemaVersion" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="tSpatialLocation">
+		<xs:annotation>
+			<xs:documentation>element of tSite</xs:documentation>
+				<xs:documentation>Spatial location is information about the physical location where a site is in the world.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence minOccurs="0">
+			<xs:element name="Description" type="xs:string" minOccurs="0"/>
+			<xs:element name="Datum" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A datum also defines the association of latitude and longitude coordinates to points on the surface of the earth--there is more than one way to do this.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Latitude" type="tLatitude"/>
+			<xs:element name="Longitude" type="tLongitude"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tTaxonomy">
+		<xs:annotation>
+			<xs:documentation>element of tSiteService</xs:documentation>
+			<xs:documentation>Taxonomy Codes are a structured system created by AIRS/INFO LINE to index human services.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence minOccurs="0">
+			<xs:element name="Code" type="xs:string"  minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>No checking is done at the XSD, verify validity of codes before export!</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tTimeOpen">
+		<xs:annotation>
+			<xs:documentation>element of tLanguages, tSite and tSiteService</xs:documentation>
+			<xs:documentation>TimeOpen refers to the times a service is open or available.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Sunday" type="tDay" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Monday" type="tDay" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Tuesday" type="tDay" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Wednesday" type="tDay" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Thursday" type="tDay" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Friday" type="tDay" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Saturday" type="tDay" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Notes" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tURL">
+		<xs:annotation>
+			<xs:documentation>element of tAgency and tSite</xs:documentation>
+			<xs:documentation>URL (Web Address)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence  minOccurs="0">
+			<xs:element name="Address" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>No checking is done at the XSD, verify validity of URL before export! Also allows for FTP now.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Note" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="tLatitude">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[+|-]\d+\.\d+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tLongitude">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[+|-]\d+\.\d+"></xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tStatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="active"/>
+			<xs:enumeration value="inactive"/>
+			<xs:enumeration value="defunct"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:attributeGroup name="deleteStampGroup">
+		<xs:attribute name="delete" type="xs:boolean" fixed="1" use="optional">
+			<xs:annotation>
+				<xs:documentation xml:lang="en">Optionally allows specification of a deleted record.  If record is to be added, do not append this attribute, since "add" is the default, understood behavior.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="deleteOccurredDate" type="xs:dateTime" use="optional">
+			<xs:annotation>
+				<xs:documentation xml:lang="en">Date deletion occured.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="deleteEffective" type="xs:dateTime" use="optional">
+			<xs:annotation>
+				<xs:documentation xml:lang="en">Date deletion effective.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:element name="Source" type="tSourceType">
+		<xs:annotation>
+			<xs:documentation>Root Element- contains all other elements.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>
+<!--
+Copyright 2012 Alliance of Information and Referral Systems
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
