@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Source xmlns="http://www.airs.org/schema/4_0_0/AIRS.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" SourceEntity="String" SourceID="String" OriginTimestamp="2001-12-17T09:30:47Z" SoftwareVendor="String" SoftwareVersion="String" TaxonomyVersion="2001-12-17T09:30:47Z" SchemaVersion="String" xsi:schemaLocation="http://www.airs.org/schema/4_0_0/AIRS.xsd airs010_draft0209.xsd">
+<Source xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.airs.org/schema/4_0_0/AIRS.xsd ../src/airs.xsd"
+ xmlns="http://www.airs.org/schema/4_0_0/AIRS.xsd" SourceEntity="String" SourceID="String"
+ OriginTimestamp="2001-12-17T09:30:47Z" SoftwareVendor="String" SoftwareVersion="String"
+ TaxonomyVersion="2001-12-17T09:30:47Z" SchemaVersion="String">
         <Agency>
                 <OrganizationID>0</OrganizationID>
                 <ID>String</ID>
@@ -116,7 +120,7 @@
                                 <Url>String</Url>
                                 <Description>String</Description>
                         </InternetResource>
-                        <Email>!@$.AA</Email>
+                        <Email>A@A.AA</Email>
                         <Contact Type="String">
                                 <ID>String</ID>
                                 <OrganizationID>String</OrganizationID>
@@ -125,7 +129,7 @@
                                 <Title>String</Title>
                                 <Name>String</Name>
                                 <Nickname>String</Nickname>
-                                <ContactEmail>!@$.AA</ContactEmail>
+                                <ContactEmail>A@A.AA</ContactEmail>
                                 <ContactPhone>
                                         <Phone>String</Phone>
                                         <Confidential>true</Confidential>
@@ -184,7 +188,7 @@
                                         <Title>String</Title>
                                         <Name>String</Name>
                                         <Nickname>String</Nickname>
-                                        <ContactEmail>!@$.AA</ContactEmail>
+                                        <ContactEmail>A@A.AA</ContactEmail>
                                         <ContactPhone>
                                                 <Phone>String</Phone>
                                                 <Confidential>true</Confidential>
@@ -201,7 +205,7 @@
                                         <Address>String</Address>
                                         <Note>String</Note>
                                 </URL>
-                                <Email>!@$.AA</Email>
+                                <Email>A@A.AA</Email>
                                 <OpenHours>
                                         <dayOpen>Wednesday</dayOpen>
                                         <TimeOpens>09:30:47+05:00</TimeOpens>
@@ -253,7 +257,7 @@
                                                 <Title>String</Title>
                                                 <Name>String</Name>
                                                 <Nickname>String</Nickname>
-                                                <ContactEmail>!@$.AA</ContactEmail>
+                                                <ContactEmail>A@A.AA</ContactEmail>
                                                 <ContactPhone>
                                                         <Phone>String</Phone>
                                                         <Confidential>true</Confidential>
@@ -350,7 +354,7 @@
                                 <Title>String</Title>
                                 <Name>String</Name>
                                 <Nickname>String</Nickname>
-                                <ContactEmail>!@$.AA</ContactEmail>
+                                <ContactEmail>A@A.AA</ContactEmail>
                                 <ContactPhone>
                                         <Phone>String</Phone>
                                         <Confidential>true</Confidential>
@@ -387,7 +391,7 @@
                         <Address>String</Address>
                         <Note>String</Note>
                 </Url>
-                <Email>!@$.AA</Email>
+                <Email>A@A.AA</Email>
                 <Contact Type="String">
                         <ID>String</ID>
                         <OrganizationID>String</OrganizationID>
@@ -396,7 +400,7 @@
                         <Title>String</Title>
                         <Name>String</Name>
                         <Nickname>String</Nickname>
-                        <ContactEmail>!@$.AA</ContactEmail>
+                        <ContactEmail>A@A.AA</ContactEmail>
                         <ContactPhone>
                                 <Phone>String</Phone>
                                 <Confidential>true</Confidential>
