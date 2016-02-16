@@ -1,93 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.airs.org/schema/4_0_0/AIRS.xsd" xmlns="http://www.airs.org/schema/4_0_0/AIRS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="4.0.0">
-         <xs:annotation>
+<xs:schema xmlns="http://www.airs.org/schema/4_0_0/AIRS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.airs.org/schema/4_0_0/AIRS.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified" version="4.0.0">
+        <xs:annotation>
                 <xs:documentation>AIRS XML Data Transfer Record Format Version 4.0.0</xs:documentation>
                 <xs:documentation>unless set, the default minOccurs="1" maxOccurs="1"</xs:documentation>
         </xs:annotation>
-
-<xs:group name="address">
+        <xs:group name="address">
                 <xs:annotation>
                         <xs:documentation>Group of Address fields to cover all locations. US, Canadian and other addresses are handled the same way.</xs:documentation>
                 </xs:annotation>
-         <xs:sequence>
-         
-           <xs:element name="AddressID" type="xs:string" minOccurs="0"/>
-           <xs:element name="Line1" type="xs:string" minOccurs="0"/>
-           <xs:element name="Line2" type="xs:string" minOccurs="0"/>
-           <xs:element name="City" type="xs:string" minOccurs="0"/>
-           <xs:element name="County" type="xs:string" minOccurs="0"/>
-           <xs:element name="State" type="xs:string" minOccurs="0"/>
-           <xs:element name="ZipCode" type="xs:string" minOccurs="0"/>
-           <xs:element name="Country" type="xs:string" minOccurs="0"/>
-           
-           <xs:element name="Confidential" type="xs:boolean" minOccurs="1"/>
-           <xs:element name="Description" type="xs:string" minOccurs="0"/>
-           <xs:element name="ReasonWithheld" type="xs:string" minOccurs="0">
-              <xs:annotation>
-                        <xs:documentation>Use this if the address is Confidential, such as a battered women's shelter. While it is possible to code an address as Confidential="true", in this case the address is so confidential that it won't be shared at all.</xs:documentation>
-                </xs:annotation>
-            </xs:element>
-           <xs:element name="IsMainAgencyAddress" type="xs:boolean" minOccurs="1"/>
-           <xs:element name="IsPhysicalAddress" type="xs:boolean" minOccurs="0"/>
-           <xs:element name="IsMailingAddress" type="xs:boolean" minOccurs="0"/>
-           <xs:element name="MetaData" type="metaData" minOccurs="0" maxOccurs="unbounded"/>
-         </xs:sequence>
-</xs:group>
-        
+                <xs:sequence>
+                        <xs:element name="AddressID" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Line1" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Line2" type="xs:string" minOccurs="0"/>
+                        <xs:element name="City" type="xs:string" minOccurs="0"/>
+                        <xs:element name="County" type="xs:string" minOccurs="0"/>
+                        <xs:element name="State" type="xs:string" minOccurs="0"/>
+                        <xs:element name="ZipCode" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Country" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Confidential" type="xs:boolean" minOccurs="1"/>
+                        <xs:element name="Description" type="xs:string" minOccurs="0"/>
+                        <xs:element name="ReasonWithheld" type="xs:string" minOccurs="0">
+                                <xs:annotation>
+                                        <xs:documentation>Use this if the address is Confidential, such as a battered women's shelter. While it is possible to code an address as Confidential="true", in this case the address is so confidential that it won't be shared at all.</xs:documentation>
+                                </xs:annotation>
+                        </xs:element>
+                        <xs:element name="IsMainAgencyAddress" type="xs:boolean" minOccurs="1"/>
+                        <xs:element name="IsPhysicalAddress" type="xs:boolean" minOccurs="0"/>
+                        <xs:element name="IsMailingAddress" type="xs:boolean" minOccurs="0"/>
+                        <xs:element name="MetaData" type="metaData" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+        </xs:group>
         <xs:element name="MailingAddress">
-        <xs:complexType>
-                <xs:annotation>
-                        <xs:documentation>element of Site</xs:documentation>
-                        <xs:documentation>Mailing address of site.</xs:documentation>
-                </xs:annotation>
-           <xs:group ref="address"/>
-        </xs:complexType>
+                <xs:complexType>
+                        <xs:annotation>
+                                <xs:documentation>element of Site</xs:documentation>
+                                <xs:documentation>Mailing address of site.</xs:documentation>
+                        </xs:annotation>
+                        <xs:group ref="address"/>
+                </xs:complexType>
         </xs:element>
-        
         <xs:element name="PhysicalAddress">
-        <xs:complexType>
-                <xs:annotation>
-                        <xs:documentation>element of Site</xs:documentation>
-                        <xs:documentation>Physical address of site, if different from mailing address.</xs:documentation>
-                </xs:annotation>
-           <xs:group ref="address"/>
-        </xs:complexType>
+                <xs:complexType>
+                        <xs:annotation>
+                                <xs:documentation>element of Site</xs:documentation>
+                                <xs:documentation>Physical address of site, if different from mailing address.</xs:documentation>
+                        </xs:annotation>
+                        <xs:group ref="address"/>
+                </xs:complexType>
         </xs:element>
-        
         <xs:element name="OtherAddress">
-        <xs:complexType>
-                <xs:annotation>
-                        <xs:documentation>element of Site</xs:documentation>
-                        <xs:documentation>Optional other address related to site.</xs:documentation>
-                </xs:annotation>
-           <xs:group ref="address"/>
-        </xs:complexType>
-       </xs:element>
-       
-<xs:complexType name="ageRequirement">
+                <xs:complexType>
+                        <xs:annotation>
+                                <xs:documentation>element of Site</xs:documentation>
+                                <xs:documentation>Optional other address related to site.</xs:documentation>
+                        </xs:annotation>
+                        <xs:group ref="address"/>
+                </xs:complexType>
+        </xs:element>
+        <xs:complexType name="ageRequirement">
                 <xs:annotation>
                         <xs:documentation>element of SiteService</xs:documentation>
                         <xs:documentation>Information about any age-related requirements or inclusions for a particular service at a particular location.</xs:documentation>
                 </xs:annotation>
                 <xs:sequence>
-                <xs:element name="MinimumAge" type="xs:string" />
-                <xs:element name="MaximumAge" type="xs:string" />
+                        <xs:element name="MinimumAge" type="xs:string"/>
+                        <xs:element name="MaximumAge" type="xs:string"/>
                 </xs:sequence>
-</xs:complexType>
-       
-<xs:complexType name="alternateName">
+        </xs:complexType>
+        <xs:complexType name="alternateName">
                 <xs:annotation>
                         <xs:documentation>element of agency and site</xs:documentation>
                         <xs:documentation>These are alternate names for an object. Confidential indicates that the alternate name won't be shared with the public.</xs:documentation>
                 </xs:annotation>
-                <xs:sequence  minOccurs="0">
+                <xs:sequence minOccurs="0">
                         <xs:element name="Name" type="xs:string" minOccurs="0"/>
                         <xs:element name="Confidential" type="xs:boolean" minOccurs="0"/>
                         <xs:element name="Description" type="xs:string" minOccurs="0"/>
                 </xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="applicationProcess">
+        </xs:complexType>
+        <xs:complexType name="applicationProcess">
                 <xs:annotation>
                         <xs:documentation>element of SiteService</xs:documentation>
                         <xs:documentation>ApplicationProcess describes the requirements to apply for or access the service; also known as the 'intake process'. For example, "Call for an appointment" or "Walk in only".</xs:documentation>
@@ -96,9 +87,8 @@
                         <xs:element name="Title" type="xs:string" minOccurs="0"/>
                         <xs:element name="Description" type="xs:string" minOccurs="0"/>
                 </xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="contact">
+        </xs:complexType>
+        <xs:complexType name="contact">
                 <xs:annotation>
                         <xs:documentation>element of Agency, ResourceInfo and Site</xs:documentation>
                         <xs:documentation>
@@ -106,7 +96,7 @@
                                 2) Contact is also used by ResourceInfo to indicate the person within each agency who has overall responsibility for updating the information about the agency, its sites and its services, etc.
                         </xs:documentation>
                 </xs:annotation>
-                <xs:sequence  minOccurs="0">
+                <xs:sequence minOccurs="0">
                         <xs:element name="ID" type="xs:string" minOccurs="0"/>
                         <xs:element name="OrganizationID" type="xs:string" minOccurs="0"/>
                         <xs:element name="ServiceID" type="xs:string" minOccurs="0"/>
@@ -115,54 +105,50 @@
                         <xs:element name="Name" type="xs:string" minOccurs="0"/>
                         <xs:element name="Nickname" type="xs:string" minOccurs="0"/>
                         <xs:element name="ContactEmail" minOccurs="0" maxOccurs="unbounded">
-                                        <xs:simpleType>
-                                                <xs:restriction base="xs:string">
-                                                        <xs:pattern value="[^@\s]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6}"/>
-                                                </xs:restriction>
-                                        </xs:simpleType>
-                           </xs:element>
+                                <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                                <xs:pattern value="[^@\s]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6}"/>
+                                        </xs:restriction>
+                                </xs:simpleType>
+                        </xs:element>
                         <xs:element name="ContactPhone" type="phone" minOccurs="0" maxOccurs="unbounded"/>
-                        </xs:sequence>
-                        <xs:attribute name="Type" type="xs:string" use="required">
+                        <xs:element name="ContactType" type="xs:string" minOccurs="1">
                                 <xs:annotation>
                                         <xs:documentation>This is the type of contact; for example, an Administrator or Owner.</xs:documentation>
                                 </xs:annotation>
-                        </xs:attribute>
-</xs:complexType>
-        
-<xs:complexType name="documentsRequired">
+                        </xs:element>
+                </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="documentsRequired">
                 <xs:annotation>
                         <xs:documentation>element of SiteService</xs:documentation>
                         <xs:documentation>A document that is required in order to access services offered at a SiteService.</xs:documentation>
-                        </xs:annotation>
-                        <xs:sequence>
-                                <xs:element name="DocumentTitle" type="xs:string" minOccurs="0"/>
-                                <xs:element name="Description" type="xs:string" minOccurs="0"/>
-                        </xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="funding">
-       <xs:sequence>
-            <xs:element name="Source" type="xs:string"/>
-            <xs:element name="ID" type="xs:string"/>
-            <xs:element name="OrganizationID" type="xs:string"/>
-            <xs:element name="Service" type="xs:string"/>
-       </xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="genderRequirement">
+                </xs:annotation>
+                <xs:sequence>
+                        <xs:element name="DocumentTitle" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Description" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="funding">
+                <xs:sequence>
+                        <xs:element name="Source" type="xs:string"/>
+                        <xs:element name="ID" type="xs:string"/>
+                        <xs:element name="OrganizationID" type="xs:string"/>
+                        <xs:element name="Service" type="xs:string"/>
+                </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="genderRequirement">
                 <xs:annotation>
                         <xs:documentation>element of SiteService</xs:documentation>
                         <xs:documentation>Information about any gender-related requirements or inclusions for a particular service at a particular location.</xs:documentation>
                 </xs:annotation>
                 <xs:sequence>
-                <xs:element name="Gender" type="xs:string" />
-                <xs:element name="MinimumAge" type="xs:string" />
-                <xs:element name="MaximumAge" type="xs:string" />
+                        <xs:element name="Gender" type="xs:string"/>
+                        <xs:element name="MinimumAge" type="xs:string"/>
+                        <xs:element name="MaximumAge" type="xs:string"/>
                 </xs:sequence>
-</xs:complexType>
-        
-<xs:complexType name="internetResource">
+        </xs:complexType>
+        <xs:complexType name="internetResource">
                 <xs:sequence minOccurs="0" maxOccurs="unbounded">
                         <xs:element name="Url" type="xs:string" minOccurs="0">
                                 <xs:annotation>
@@ -171,21 +157,19 @@
                         </xs:element>
                         <xs:element name="Description" type="xs:string" minOccurs="0"/>
                 </xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="languageAvailability">
+        </xs:complexType>
+        <xs:complexType name="languageAvailability">
                 <xs:annotation>
                         <xs:documentation>element of Site and SiteService</xs:documentation>
                         <xs:documentation>Languages spoken and the times the language is available.</xs:documentation>
                 </xs:annotation>
-                        <xs:sequence minOccurs="0" maxOccurs="unbounded">
-                                <xs:element name="Name" type="xs:string" minOccurs="0"/>
-                                <xs:element name="LanguageHours" type="openHours" minOccurs="0"/>
-                                <xs:element name="Notes" type="xs:string" minOccurs="0"/>
-                        </xs:sequence>
-</xs:complexType>
-        
-<xs:complexType name="licenseAccreditation">
+                <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                        <xs:element name="Name" type="xs:string" minOccurs="0"/>
+                        <xs:element name="LanguageHours" type="openHours" minOccurs="0"/>
+                        <xs:element name="Notes" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="licenseAccreditation">
                 <xs:annotation>
                         <xs:documentation>element of Agency</xs:documentation>
                         <xs:documentation>If applicable, information about the license/accreditation held by the agency and the body that licensed/accredited it.</xs:documentation>
@@ -194,19 +178,17 @@
                         <xs:element name="License" type="xs:string" minOccurs="0"/>
                         <xs:element name="LicensedBy" type="xs:string" minOccurs="0"/>
                 </xs:sequence>
-</xs:complexType>
-        
-<xs:complexType name="metaData">
-        <xs:sequence>
-            <xs:element name="ID" type="xs:string"/>
-            <xs:element name="ResourceID" type="xs:string"/>
-            <xs:element name="FieldName" type="xs:string"/>
-            <xs:element name="PreviousValue" type="xs:string"/>
-            <xs:element name="UpdatedBy" type="xs:string"/>
-         </xs:sequence>
-</xs:complexType>
-        
-<xs:complexType name="noPhysicalAddress">
+        </xs:complexType>
+        <xs:complexType name="metaData">
+                <xs:sequence>
+                        <xs:element name="ID" type="xs:string"/>
+                        <xs:element name="ResourceID" type="xs:string"/>
+                        <xs:element name="FieldName" type="xs:string"/>
+                        <xs:element name="PreviousValue" type="xs:string"/>
+                        <xs:element name="UpdatedBy" type="xs:string"/>
+                </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="noPhysicalAddress">
                 <xs:annotation>
                         <xs:documentation>element of Site</xs:documentation>
                         <xs:documentation>This is something without a physical presence; Description is what the entity is/does, and Explanation is why is doesn't have a physical presence.
@@ -217,110 +199,100 @@
                         <xs:element name="Description" type="xs:string" minOccurs="0"/>
                         <xs:element name="Explanation" type="xs:string" minOccurs="0"/>
                 </xs:sequence>
-</xs:complexType>
-
-<!-- NEW OPEN HOURS AND RELATED ELEMENTS -->
-
-<xs:complexType name="openHours">
-   <xs:annotation>
-        <xs:documentation></xs:documentation>
-   </xs:annotation>
-   <xs:sequence>
-        <xs:choice>
-        <xs:element ref="dayOpen"/>
-        </xs:choice>
-        <xs:element name="TimeOpens" type="xs:time" minOccurs="0" maxOccurs="2"/>
-        <xs:element name="TimeCloses" type="xs:time" minOccurs="0" maxOccurs="2"/>
-   </xs:sequence>
-</xs:complexType>
-
-<xs:element name="dayOpen">
-  <xs:simpleType>
-  <xs:restriction base="xs:string">
-     <xs:enumeration value="Monday"/>
-     <xs:enumeration value="Tuesday"/>
-     <xs:enumeration value="Wednesday"/>
-     <xs:enumeration value="Thursday"/>
-     <xs:enumeration value="Friday"/>
-     <xs:enumeration value="Saturday"/>
-     <xs:enumeration value="Sunday"/>
-  </xs:restriction>
-  </xs:simpleType>
-</xs:element>
-
-<xs:group name="specialHours">
-<xs:sequence>
-  <xs:element name="SpecialHoursStartDate" type="xs:date" minOccurs="0" maxOccurs="unbounded"/>
-  <xs:element name="SpecialHoursEndDate" type="xs:date" minOccurs="0" maxOccurs="unbounded"/>
-  <xs:element name="SpecialOpenTime" type="xs:time" minOccurs="0" maxOccurs="unbounded"/>
-  <xs:element name="SpecialCloseTime" type="xs:time" minOccurs="0" maxOccurs="unbounded"/>
-  </xs:sequence>
-</xs:group>
-
-<!-- END OPEN HOURS AND RELATED ELEMENTS -->
-
-<xs:complexType name="phone">
-        <xs:sequence>
-                <xs:element name="Phone" type="xs:string" minOccurs="0"/>
-                <xs:element name="Confidential" type="xs:boolean" minOccurs="0"/>
-                <xs:element name="ReasonWithheld" type="xs:string" minOccurs="0">
-                              <xs:annotation>
-                                   <xs:documentation>Use this if the phone can not be shared due to security concerns, such as a spousal abuse group home. While it is possible to code a phone as Confidential="true", in this case the phone is so confidential that it won't be shared at all.</xs:documentation>
-                              </xs:annotation>
-                </xs:element>
-                <xs:element name="Description" type="xs:string" minOccurs="0"/>
-                <xs:element name="Type" type="xs:string" minOccurs="0"/>
-                <xs:element name="Function" type="xs:string" minOccurs="0"/>
-                <xs:element name="TollFree" type="xs:boolean" minOccurs="0"/>
-                <xs:element name="Department" type="xs:string" minOccurs="0"/>
-                <xs:element name="CountryPrefix" type="xs:string" minOccurs="0"/>
-        </xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="resourceInfo">
+        </xs:complexType>
+        <!-- NEW OPEN HOURS AND RELATED ELEMENTS -->
+        <xs:complexType name="openHours">
+                <xs:annotation>
+                        <xs:documentation/>
+                </xs:annotation>
+                <xs:sequence>
+                        <xs:choice>
+                                <xs:element ref="dayOpen"/>
+                        </xs:choice>
+                        <xs:element name="TimeOpens" type="xs:time" minOccurs="0" maxOccurs="2"/>
+                        <xs:element name="TimeCloses" type="xs:time" minOccurs="0" maxOccurs="2"/>
+                </xs:sequence>
+        </xs:complexType>
+        <xs:element name="dayOpen">
+                <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                                <xs:enumeration value="Monday"/>
+                                <xs:enumeration value="Tuesday"/>
+                                <xs:enumeration value="Wednesday"/>
+                                <xs:enumeration value="Thursday"/>
+                                <xs:enumeration value="Friday"/>
+                                <xs:enumeration value="Saturday"/>
+                                <xs:enumeration value="Sunday"/>
+                        </xs:restriction>
+                </xs:simpleType>
+        </xs:element>
+        <xs:group name="specialHours">
+                <xs:sequence>
+                        <xs:element name="SpecialHoursStartDate" type="xs:date" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="SpecialHoursEndDate" type="xs:date" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="SpecialOpenTime" type="xs:time" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="SpecialCloseTime" type="xs:time" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+        </xs:group>
+        <!-- END OPEN HOURS AND RELATED ELEMENTS -->
+        <xs:complexType name="phone">
+                <xs:sequence>
+                        <xs:element name="Phone" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Confidential" type="xs:boolean" minOccurs="0"/>
+                        <xs:element name="ReasonWithheld" type="xs:string" minOccurs="0">
+                                <xs:annotation>
+                                        <xs:documentation>Use this if the phone can not be shared due to security concerns, such as a spousal abuse group home. While it is possible to code a phone as Confidential="true", in this case the phone is so confidential that it won't be shared at all.</xs:documentation>
+                                </xs:annotation>
+                        </xs:element>
+                        <xs:element name="Description" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Type" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Function" type="xs:string" minOccurs="0"/>
+                        <xs:element name="TollFree" type="xs:boolean" minOccurs="0"/>
+                        <xs:element name="Department" type="xs:string" minOccurs="0"/>
+                        <xs:element name="CountryPrefix" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="resourceInfo">
                 <xs:annotation>
                         <xs:documentation>element of Agency and SiteService</xs:documentation>
                         <xs:documentation>information about the data</xs:documentation>
                 </xs:annotation>
-        <xs:sequence minOccurs="0">
-                <xs:element name="Contact" type="contact" minOccurs="0" maxOccurs="unbounded"/>
-                <xs:element name="ResourceSpecialist" type="xs:string" minOccurs="0">
+                <xs:sequence minOccurs="0">
+                        <xs:element name="Contact" type="contact" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="ResourceSpecialist" type="xs:string" minOccurs="0">
                                 <xs:annotation>
                                         <xs:documentation>This is a person who created/maintains the data</xs:documentation>
                                 </xs:annotation>
-                </xs:element>
-                <xs:element name="AvailableForDirectory" type="xs:boolean"/>
-                <xs:element name="AvailableForReferral" type="xs:boolean"/>
-                <xs:element name="AvailableForResearch" type="xs:boolean"/>
-                <xs:element name="DateAdded" type="xs:date"/>
-                <xs:element name="DateLastVerified" type="xs:date"/>
-                <xs:element name="DateOfLastAction" type="xs:date"/>
-                <xs:element name="LastActionType" type="xs:string"/>
-        </xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="seasonal">
-          <xs:sequence>
-                <xs:element name="Description" type="xs:string"/>
-                <xs:group ref="specialHours"/>
-           </xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="serviceArea">
-        <xs:sequence>
-                <xs:element name="Name" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-                <xs:element name="ZipCode" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-                <xs:element name="CensusTract" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-                <xs:element name="City" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-                <xs:element name="County" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-                <xs:element name="State" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-                <xs:element name="Country" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-                <xs:element name="Description" type="xs:string" minOccurs="0"/>
-                <xs:element name="CustomAreaLabel" type="xs:string" minOccurs="0"/>
-        </xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="serviceGroup">
+                        </xs:element>
+                        <xs:element name="AvailableForDirectory" type="xs:boolean"/>
+                        <xs:element name="AvailableForReferral" type="xs:boolean"/>
+                        <xs:element name="AvailableForResearch" type="xs:boolean"/>
+                        <xs:element name="DateAdded" type="xs:date"/>
+                        <xs:element name="DateLastVerified" type="xs:date"/>
+                        <xs:element name="DateOfLastAction" type="xs:date"/>
+                        <xs:element name="LastActionType" type="xs:string"/>
+                </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="seasonal">
+                <xs:sequence>
+                        <xs:element name="Description" type="xs:string"/>
+                        <xs:group ref="specialHours"/>
+                </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="serviceArea">
+                <xs:sequence>
+                        <xs:element name="Name" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="ZipCode" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="CensusTract" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="City" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="County" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="State" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="Country" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="Description" type="xs:string" minOccurs="0"/>
+                        <xs:element name="CustomAreaLabel" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="serviceGroup">
                 <xs:annotation>
                         <xs:documentation>element of Agency</xs:documentation>
                         <xs:documentation>Service Groups are a way to group related services, which may be sometimes but not necessarily be known as "Programs". However, not all vendors implement this. This will provide a key that can be added to SiteService.ServiceGroupKey so that multiple SiteServices can belong to the same ServiceGroup.
@@ -345,12 +317,11 @@
                         <xs:element name="Description" type="xs:string" minOccurs="0"/>
                         <xs:element name="ApplicationProcess" type="applicationProcess" minOccurs="0" maxOccurs="unbounded"/>
                 </xs:sequence>
-</xs:complexType>
-        
-<xs:complexType name="spatialLocation">
+        </xs:complexType>
+        <xs:complexType name="spatialLocation">
                 <xs:annotation>
                         <xs:documentation>element of site</xs:documentation>
-                                <xs:documentation>Spatial location is information about the physical location where a site is in the world.</xs:documentation>
+                        <xs:documentation>Spatial location is information about the physical location where a site is in the world.</xs:documentation>
                 </xs:annotation>
                 <xs:sequence minOccurs="0">
                         <xs:element name="Description" type="xs:string" minOccurs="0"/>
@@ -360,26 +331,24 @@
                                 </xs:annotation>
                         </xs:element>
                         <xs:element name="Latitude">
-                        <xs:simpleType>
-                <xs:restriction base="xs:string">
-                        <xs:pattern value="[+|-]\d+\.\d+"/>
-                </xs:restriction>
-        </xs:simpleType>
-        </xs:element>
-        <xs:element name="Longitude">
-        <xs:simpleType>
-                <xs:restriction base="xs:string">
-                        <xs:pattern value="[+|-]\d+\.\d+"></xs:pattern>
-                </xs:restriction>
-        </xs:simpleType>
-        </xs:element>
-   </xs:sequence>
-</xs:complexType>
-
- <xs:complexType name="source">
+                                <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                                <xs:pattern value="[+|-]\d+\.\d+"/>
+                                        </xs:restriction>
+                                </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="Longitude">
+                                <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                                <xs:pattern value="[+|-]\d+\.\d+"/>
+                                        </xs:restriction>
+                                </xs:simpleType>
+                        </xs:element>
+                </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="source">
                 <xs:sequence>
                         <xs:element name="Agency" type="agency" block="#all" maxOccurs="unbounded"/>
-
                 </xs:sequence>
                 <xs:attribute name="SourceEntity" type="xs:string" use="required">
                         <xs:annotation>
@@ -392,34 +361,31 @@
                 <xs:attribute name="SoftwareVersion" type="xs:string" use="required"/>
                 <xs:attribute name="TaxonomyVersion" type="xs:dateTime" use="required"/>
                 <xs:attribute name="SchemaVersion" type="xs:string" use="required"/>
-</xs:complexType>
-
-<xs:simpleType name="status">
+        </xs:complexType>
+        <xs:simpleType name="status">
                 <xs:restriction base="xs:string">
                         <xs:enumeration value="active"/>
                         <xs:enumeration value="inactive"/>
                         <xs:enumeration value="defunct"/>
                 </xs:restriction>
-</xs:simpleType>
-        
-<xs:complexType name="taxonomy">
+        </xs:simpleType>
+        <xs:complexType name="taxonomy">
                 <xs:annotation>
-                             <xs:documentation>element of SiteService</xs:documentation>
-                             <xs:documentation>Taxonomy Codes are a structured system created by AIRS/INFO LINE to index human services.</xs:documentation>
-                             <xs:documentation>No checking is done at the XSD, verify validity of codes before export!</xs:documentation>
+                        <xs:documentation>element of SiteService</xs:documentation>
+                        <xs:documentation>Taxonomy Codes are a structured system created by AIRS/INFO LINE to index human services.</xs:documentation>
+                        <xs:documentation>No checking is done at the XSD, verify validity of codes before export!</xs:documentation>
                 </xs:annotation>
-       <xs:sequence>
-            <xs:element name="taxonomyCode" type="xs:string" />
-            <xs:element name="taxonomyTerm" type="xs:string" />
-       </xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="url">
+                <xs:sequence>
+                        <xs:element name="taxonomyCode" type="xs:string"/>
+                        <xs:element name="taxonomyTerm" type="xs:string"/>
+                </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="url">
                 <xs:annotation>
                         <xs:documentation>element of Agency and Site</xs:documentation>
                         <xs:documentation>URL (Web Address)</xs:documentation>
                 </xs:annotation>
-                <xs:sequence  minOccurs="0">
+                <xs:sequence minOccurs="0">
                         <xs:element name="Address" type="xs:string" minOccurs="0">
                                 <xs:annotation>
                                         <xs:documentation>No checking is done at the XSD, verify validity of URL before export! Also allows for FTP now.</xs:documentation>
@@ -427,22 +393,19 @@
                         </xs:element>
                         <xs:element name="Note" type="xs:string" minOccurs="0"/>
                 </xs:sequence>
- </xs:complexType>
- 
-<!--BEGIN PARENT ELEMENTS -->
-
-<xs:element name="Source" type="source">
-            <xs:annotation>
-                        <xs:documentation>Top-level node containing all agency nodes.</xs:documentation>
-            </xs:annotation>
-</xs:element>
-
-<xs:complexType name="agency">
+        </xs:complexType>
+        <!--BEGIN PARENT ELEMENTS -->
+        <xs:element name="Source" type="source">
                 <xs:annotation>
-                        <xs:documentation>Agencies are organizations that offer services at Sites. Agencies provide services directly or they may have "child" agencies that offer these Services. Services are offered at Sites that belong to an Agency. Services are represented by the combination of taxonomy codes offered at a Site location; this idea is called a SiteService. To recap: Agencies don't provide services directly, they provide them through Sites.</xs:documentation>
+                        <xs:documentation>Top-level node containing all agency nodes.</xs:documentation>
+                </xs:annotation>
+        </xs:element>
+        <xs:complexType name="agency">
+                <xs:annotation>
+                        <xs:documentation>Agencies are organizations that offer Services at Sites.  </xs:documentation>
                 </xs:annotation>
                 <xs:sequence>
-                <xs:element name="OrganizationID" type="xs:nonNegativeInteger" minOccurs="1"/>
+                        <xs:element name="OrganizationID" type="xs:nonNegativeInteger" minOccurs="1"/>
                         <xs:element name="ID" type="xs:string">
                                 <xs:annotation>
                                         <xs:documentation>This is a unique number representing a vendor's internal way of tracking an agency. This can be used as meta data to uniquely describe an Agency.</xs:documentation>
@@ -453,34 +416,33 @@
                         <xs:element name="AlternateName" type="alternateName" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element name="Site" type="site" minOccurs="0"/>
                         <xs:element name="ServiceGroup" type="serviceGroup"/>
+                        <xs:element name="Service" type="service" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="SiteService" type="siteService" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element name="ResourceInfo" type="resourceInfo"/>
                         <xs:element name="Phone" type="phone" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element name="Url" type="url" minOccurs="0" maxOccurs="unbounded"/>
-
                         <xs:element name="Email" minOccurs="0" maxOccurs="unbounded">
-                                        <xs:simpleType>
-                                                <xs:restriction base="xs:string">
-                                                        <xs:pattern value="[^@\s]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6}"/>
-                                                </xs:restriction>
-                                        </xs:simpleType>
+                                <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                                <xs:pattern value="[^@\s]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6}"/>
+                                        </xs:restriction>
+                                </xs:simpleType>
                         </xs:element>
                         <xs:element name="Contact" type="contact" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element name="LicenseAccreditation" type="licenseAccreditation" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element name="TaxStatus" type="xs:string"/>
                         <xs:element name="Funding" type="funding"/>
-
                         <xs:element name="ExcludeFromWebsite" type="xs:boolean"/>
                         <xs:element name="YearIncorporated" type="xs:string"/>
                         <xs:element name="FEIN" type="xs:string"/>
                         <xs:element name="AgencyOffersService" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element name="MetaData" type="metaData" minOccurs="0" maxOccurs="unbounded"/>
-               </xs:sequence>
-</xs:complexType>
-
- <xs:complexType name="site">
+                </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="site">
                 <xs:annotation>
                         <xs:documentation>element of Agency</xs:documentation>
-                        <xs:documentation>Sites are physical locations or non-physical locations (a website or hotline). Site is used for two purposes. First, it is used by Agency to provide the location of the agency in Agency.AgencyLocation (note this type of Site would never have any SiteService children). Second, sites are also the location where services are provided. This would be the Agency.Site element (note this type of Site would have SiteService children).</xs:documentation>
+
                 </xs:annotation>
                 <xs:sequence>
                         <xs:element name="ID" type="xs:string">
@@ -497,51 +459,45 @@
                         <xs:element name="Description" type="xs:string" minOccurs="0"/>
                         <xs:element name="Directions" type="xs:string" minOccurs="0"/>
                         <xs:element name="AlternateName" type="alternateName" minOccurs="0" maxOccurs="unbounded"/>
-                        
-        <xs:element name="MailingAddress">
-        <xs:complexType>
-                <xs:annotation>
-                        <xs:documentation>element of Site</xs:documentation>
-                        <xs:documentation>Mailing address of site.</xs:documentation>
-                </xs:annotation>
-           <xs:group ref="address"/>
-
-        </xs:complexType>
-        </xs:element>
-
-        <xs:element name="PhysicalAddress">
-        <xs:complexType>
-                <xs:annotation>
-                        <xs:documentation>element of Site</xs:documentation>
-                        <xs:documentation>Physical address of site, if different from mailing address.</xs:documentation>
-                </xs:annotation>
-           <xs:group ref="address"/>
-
-        </xs:complexType>
-        </xs:element>
-        <xs:element name="NoPhysicalAddress" type="noPhysicalAddress" minOccurs="0"/>
-        <xs:element name="OtherAddress">
-        <xs:complexType>
-                <xs:annotation>
-                        <xs:documentation>element of Site</xs:documentation>
-                        <xs:documentation>Optional other address related to site.</xs:documentation>
-                </xs:annotation>
-           <xs:group ref="address"/>
-
-        </xs:complexType>
-       </xs:element>
-
+                        <xs:element name="MailingAddress">
+                                <xs:complexType>
+                                        <xs:annotation>
+                                                <xs:documentation>element of Site</xs:documentation>
+                                                <xs:documentation>Mailing address of site.</xs:documentation>
+                                        </xs:annotation>
+                                        <xs:group ref="address"/>
+                                </xs:complexType>
+                        </xs:element>
+                        <xs:element name="PhysicalAddress">
+                                <xs:complexType>
+                                        <xs:annotation>
+                                                <xs:documentation>element of Site</xs:documentation>
+                                                <xs:documentation>Physical address of site, if different from mailing address.</xs:documentation>
+                                        </xs:annotation>
+                                        <xs:group ref="address"/>
+                                </xs:complexType>
+                        </xs:element>
+                        <xs:element name="NoPhysicalAddress" type="noPhysicalAddress" minOccurs="0"/>
+                        <xs:element name="OtherAddress">
+                                <xs:complexType>
+                                        <xs:annotation>
+                                                <xs:documentation>element of Site</xs:documentation>
+                                                <xs:documentation>Optional other address related to site.</xs:documentation>
+                                        </xs:annotation>
+                                        <xs:group ref="address"/>
+                                </xs:complexType>
+                        </xs:element>
                         <xs:element name="CrossStreet" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element name="Phone" type="phone" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element name="URL" type="url" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element name="InternetResource" type="internetResource" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element name="Email" minOccurs="0" maxOccurs="unbounded">
-                                        <xs:simpleType>
-                                                <xs:restriction base="xs:string">
-                                                        <xs:pattern value="[^@\s]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6}"/>
-                                                </xs:restriction>
-                                        </xs:simpleType>
-                           </xs:element>
+                                <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                                <xs:pattern value="[^@\s]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6}"/>
+                                        </xs:restriction>
+                                </xs:simpleType>
+                        </xs:element>
                         <xs:element name="Contact" type="contact" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element name="OpenHours" type="openHours" minOccurs="0" maxOccurs="7"/>
                         <xs:element name="SpecialHours">
@@ -556,22 +512,18 @@
                         <xs:element name="DisabilitiesAccess" type="xs:string" minOccurs="0"/>
                         <xs:element name="PhysicalLocationDescription" type="xs:string" minOccurs="0"/>
                         <xs:element name="BusServiceAccess" type="xs:string" minOccurs="0"/>
-                        <xs:element name="SiteService" type="siteService" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element name="SpatialLocation" type="spatialLocation" minOccurs="0"/>
-
-
-                <xs:element name="Status" type="status"/>
-                <xs:element name="PublicAccessToTransportation" type="xs:boolean"/>
-                <xs:element name="ExcludeFromWebsite" type="xs:boolean"/>
-                <xs:element name="ExcludeFromDirectory" type="xs:boolean"/>
-                <xs:element name="MetaData" type="metaData" minOccurs="0" maxOccurs="unbounded"/>
-        </xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="siteService">
+                        <xs:element name="Status" type="status"/>
+                        <xs:element name="PublicAccessToTransportation" type="xs:boolean"/>
+                        <xs:element name="ExcludeFromWebsite" type="xs:boolean"/>
+                        <xs:element name="ExcludeFromDirectory" type="xs:boolean"/>
+                        <xs:element name="MetaData" type="metaData" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="siteService">
                 <xs:annotation>
-                        <xs:documentation>element of Site</xs:documentation>
-                        <xs:documentation>SiteService is the smallest unit describing a "service" that is offered at a Site. It can be thought of as the intersection of a Site and a Taxonomy code (or related Taxonomy codes) and meta data about what is offered. A "Service" however is not represented as its own element because the "Service" cannot exist without a location (the site).</xs:documentation>
+                        <xs:documentation>element of Agency</xs:documentation>
+                        <xs:documentation>SiteService is a specific service offered at a Site, containing both Site ID & Service ID. </xs:documentation>
                 </xs:annotation>
                 <xs:sequence minOccurs="0">
                         <xs:element name="Name" type="xs:string" minOccurs="0"/>
@@ -580,16 +532,18 @@
                                         <xs:documentation>This is a unique value representing a vendor's internal way of tracking a SiteService. It can be used as meta data to uniquely describe a SiteService.</xs:documentation>
                                 </xs:annotation>
                         </xs:element>
+                        <xs:element name="SiteID" type="xs:string"/>
+                        <xs:element name="ServiceID" type="xs:string"/>
                         <xs:element name="Description" type="xs:string" minOccurs="0"/>
                         <xs:element name="Phone" type="phone" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element name="Contact" type="contact" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element name="URL" type="url" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element name="Email" minOccurs="0" maxOccurs="unbounded">
-                                        <xs:simpleType>
-                                                <xs:restriction base="xs:string">
-                                                        <xs:pattern value="[^@\s]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6}"/>
-                                                </xs:restriction>
-                                        </xs:simpleType>
+                        <xs:element name="Email" minOccurs="0" maxOccurs="unbounded">
+                                <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                                <xs:pattern value="[^@\s]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6}"/>
+                                        </xs:restriction>
+                                </xs:simpleType>
                         </xs:element>
                         <xs:element name="OpenHours" type="openHours" minOccurs="0" maxOccurs="7"/>
                         <xs:element name="SpecialHours">
@@ -600,10 +554,10 @@
                                         <xs:group ref="specialHours"/>
                                 </xs:complexType>
                         </xs:element>
-
                         <xs:element name="Seasonal" type="seasonal" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element name="Taxonomy" type="taxonomy" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element name="Languages" type="languageAvailability" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="TranslationService" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element name="ServiceArea" type="serviceArea" maxOccurs="unbounded"/>
                         <xs:element name="ResourceInfo" type="resourceInfo" minOccurs="0"/>
                         <xs:element name="InternetResource" type="internetResource" minOccurs="0" maxOccurs="unbounded"/>
@@ -621,32 +575,33 @@
                         <xs:element name="FamilyRequirements" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element name="IncomeRequirements" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element name="ResidencyRequirements" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-
-
-                <xs:element name="Status" type="status"/>
-                <xs:element name="ServiceNotAlwaysAvailable" type="xs:boolean"/>
-                <xs:element name="ServiceGroupID" type="xs:nonNegativeInteger">
-                        <xs:annotation>
-                                <xs:documentation>An optional value linking this SiteService to a ServiceGroup (Program)</xs:documentation>
-                        </xs:annotation>
-                </xs:element>
-                <xs:element name="MetaData" type="metaData" minOccurs="0" maxOccurs="unbounded"/>
-            </xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="service">
-     <xs:sequence>
-            <xs:element name="WaitTime" type="xs:string"  minOccurs="0"/>
-            <xs:element name="ApplicationProcess" type="applicationProcess" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element name="ServiceGroupID" type="xs:nonNegativeInteger">
-                        <xs:annotation>
-                                <xs:documentation>An optional value linking this SiteService to a ServiceGroup (Program)</xs:documentation>
-                        </xs:annotation>
-            </xs:element>
-            <xs:element name="MetaData" type="metaData" minOccurs="0" maxOccurs="unbounded"/>
-     </xs:sequence>
-</xs:complexType>
-
-
-
+                        <xs:element name="Status" type="status"/>
+                        <xs:element name="ServiceNotAlwaysAvailable" type="xs:boolean"/>
+                        <xs:element name="ServiceGroupID" type="xs:nonNegativeInteger">
+                                <xs:annotation>
+                                        <xs:documentation>An optional value linking this SiteService to a ServiceGroup (Program)</xs:documentation>
+                                </xs:annotation>
+                        </xs:element>
+                        <xs:element name="MetaData" type="metaData" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="service">
+                <xs:annotation>
+                        <xs:documentation>element of Agency</xs:documentation>
+                </xs:annotation>
+                <xs:sequence>
+                        <xs:element name="ID" type="xs:string"/>
+                        <xs:element name="AgencyID" type="xs:string"/>
+                        <xs:element name="ID" type="xs:string"/>
+                        <xs:element name="WaitTime" type="xs:string" minOccurs="0"/>
+                        <xs:element name="ApplicationProcess" type="applicationProcess" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="ServiceGroupID" type="xs:nonNegativeInteger">
+                                <xs:annotation>
+                                        <xs:documentation>An optional value linking this Service to a ServiceGroup (Program)</xs:documentation>
+                                </xs:annotation>
+                        </xs:element>
+                        <xs:element name="MetaData" type="metaData" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+        </xs:complexType>
 </xs:schema>
+
