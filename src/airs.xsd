@@ -523,7 +523,7 @@
         <xs:complexType name="siteService">
                 <xs:annotation>
                         <xs:documentation>element of Agency</xs:documentation>
-                        <xs:documentation>SiteService is a specific service offered at a Site, containing both Site ID & Service ID. </xs:documentation>
+                        <xs:documentation>SiteService is a specific service offered at a Site, containing both Site ID and Service ID. </xs:documentation>
                 </xs:annotation>
                 <xs:sequence minOccurs="0">
                         <xs:element name="Name" type="xs:string" minOccurs="0"/>
