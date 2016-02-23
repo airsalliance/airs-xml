@@ -121,7 +121,7 @@
                         <City>String</City>
                         <County>String</County>
                         <State>String</State>
-                        <ZipCode>String</ZipCode>
+                        <PostalCode>String</PostalCode>
                         <Country>String</Country>
                         <Confidential>true</Confidential>
                         <Description>String</Description>
@@ -144,7 +144,7 @@
                         <City>String</City>
                         <County>String</County>
                         <State>String</State>
-                        <ZipCode>String</ZipCode>
+                        <PostalCode>String</PostalCode>
                         <Country>String</Country>
                         <Confidential>true</Confidential>
                         <Description>String</Description>
@@ -172,7 +172,7 @@
                         <City>String</City>
                         <County>String</County>
                         <State>String</State>
-                        <ZipCode>String</ZipCode>
+                        <PostalCode>String</PostalCode>
                         <Country>String</Country>
                         <Confidential>true</Confidential>
                         <Description>String</Description>
@@ -404,7 +404,7 @@
                 <TranslationService>String</TranslationService>
                 <ServiceArea>
                         <Name>String</Name>
-                        <ZipCode>String</ZipCode>
+                        <PostalCode>String</PostalCode>
                         <CensusTract>String</CensusTract>
                         <City>String</City>
                         <County>String</County>
