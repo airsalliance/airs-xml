@@ -53,10 +53,10 @@
                         <Department>String</Department>
                         <CountryPrefix>String</CountryPrefix>
                 </Phone>
-                <Url>
+                <URL>
                         <Address>String</Address>
                         <Note>String</Note>
-                </Url>
+                </URL>
                 <Email>A@A.AA</Email>
                 <Contact>
                         <ID>String</ID>
@@ -389,8 +389,8 @@
                         <SpecialCloseTime>09:30:47+05:00</SpecialCloseTime>
                 </Seasonal>
                 <Taxonomy>
-                        <taxonomyCode>String</taxonomyCode>
-                        <taxonomyTerm>String</taxonomyTerm>
+                        <TaxonomyCode>String</TaxonomyCode>
+                        <TaxonomyTerm>String</TaxonomyTerm>
                 </Taxonomy>
                 <Languages>
                         <LanguageName>String</LanguageName>

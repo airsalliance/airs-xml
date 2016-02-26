@@ -379,8 +379,8 @@
                         <xs:documentation>No checking is done at the XSD, verify validity of codes before export!</xs:documentation>
                 </xs:annotation>
                 <xs:sequence>
-                        <xs:element name="taxonomyCode" type="xs:string"/>
-                        <xs:element name="taxonomyTerm" type="xs:string"/>
+                        <xs:element name="TaxonomyCode" type="xs:string"/>
+                        <xs:element name="TaxonomyTerm" type="xs:string"/>
                 </xs:sequence>
         </xs:complexType>
         <xs:complexType name="url">
@@ -423,7 +423,7 @@
 
                         <xs:element name="ResourceInfo" type="resourceInfo"/>
                         <xs:element name="Phone" type="phone" minOccurs="0" maxOccurs="unbounded"/>
-                        <xs:element name="Url" type="url" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="URL" type="url" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element name="Email" minOccurs="0" maxOccurs="unbounded">
                                 <xs:simpleType>
                                         <xs:restriction base="xs:string">
