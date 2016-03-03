@@ -1,527 +1,484 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Source xmlns="http://www.airs.org/schema/4_0_0/AIRS.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" SourceEntity="String" SourceID="String" OriginTimestamp="2001-12-17T09:30:47Z" SoftwareVendor="String" SoftwareVersion="String" TaxonomyVersion="2001-12-17T09:30:47Z" SchemaVersion="String" xsi:schemaLocation="http://www.airs.org/schema/4_0_0/AIRS.xsd airs0217.xsd">
+<Source xmlns="http://www.airs.org/schema/4_0_0/AIRS.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" SourceEntity="String" SourceID="String" OriginTimestamp="2001-12-17T09:30:47Z" SoftwareVendor="String" SoftwareVersion="String" TaxonomyVersion="2001-12-17T09:30:47Z" SchemaVersion="String" xsi:schemaLocation="http://www.airs.org/schema/4_0_0/AIRS.xsd airs.xsd">
         <Agency>
-                <AgencyID>String</AgencyID>
-                <VendorInternalID>String</VendorInternalID>
-                <AgencyName>String</AgencyName>
-                <Description>String</Description>
+                <AgencyID>A1234</AgencyID>
+                <AgencyName>Sample Agency</AgencyName>
+                <Description>Sample Agency provides services to families, including food banks.</Description>
                 <AlternateName>
-                        <AlternateName>String</AlternateName>
-                        <Confidential>true</Confidential>
-                        <Description>String</Description>
+                        <AlternateName>Alternate Name of Agency</AlternateName>
+                        <Confidential>false</Confidential>
+                        <Description>Reason for confidentiality if true</Description>
                 </AlternateName>
                 <ResourceInfo>
                         <Contact>
-                                <ID>String</ID>
-                                <AgencyID>String</AgencyID>
-                                <ServiceID>String</ServiceID>
-                                <Department>String</Department>
-                                <Title>String</Title>
-                                <Name>String</Name>
-                                <Nickname>String</Nickname>
-                                <ContactEmail>A@A.AA</ContactEmail>
+                                <ID>C1234</ID>
+                                <AgencyID>A1234</AgencyID>
+                                <ServiceID>S1234</ServiceID>
+                                <Department>Information Technology</Department>
+                                <Title>Database Manager</Title>
+                                <Name>Joe Jones</Name>
+                                <Nickname>Joey</Nickname>
+                                <ContactEmail>joe.jones@agency.com</ContactEmail>
                                 <ContactPhone>
-                                        <Phone>String</Phone>
-                                        <Confidential>true</Confidential>
-                                        <ReasonWithheld>String</ReasonWithheld>
-                                        <Description>String</Description>
-                                        <Type>String</Type>
-                                        <Function>String</Function>
-                                        <TollFree>true</TollFree>
-                                        <Department>String</Department>
-                                        <CountryPrefix>String</CountryPrefix>
+                                        <Phone>111-111-1111</Phone>
+                                        <Confidential>false</Confidential>
+                                        <ReasonWithheld>Use only if Confidential = true</ReasonWithheld>
+                                        <Description>Description only if Confidential = true</Description>
+                                        <Type>Landline</Type>
+                                        <Function>IT Department Phone</Function>
+                                        <TollFree>false</TollFree>
+                                        <Department>IT Department</Department>
+                                        <CountryPrefix>011</CountryPrefix>
                                 </ContactPhone>
-                                <ContactType>String</ContactType>
+                                <ContactType>Database Manager</ContactType>
                         </Contact>
-                        <ResourceSpecialist>String</ResourceSpecialist>
+                        <ResourceSpecialist>Jane Smith</ResourceSpecialist>
                         <AvailableForDirectory>true</AvailableForDirectory>
                         <AvailableForReferral>true</AvailableForReferral>
                         <AvailableForResearch>true</AvailableForResearch>
-                        <DateAdded>1957-08-13</DateAdded>
-                        <DateLastVerified>1957-08-13</DateLastVerified>
-                        <DateOfLastAction>1957-08-13</DateOfLastAction>
-                        <LastActionType>String</LastActionType>
+                        <DateAdded>2015-08-13</DateAdded>
+                        <DateLastVerified>2015-08-13</DateLastVerified>
+                        <DateOfLastAction>2015-08-13</DateOfLastAction>
+                        <LastActionType>Update</LastActionType>
                 </ResourceInfo>
                 <Phone>
-                        <Phone>String</Phone>
+                        <Phone>(800) 222-2222</Phone>
                         <Confidential>true</Confidential>
-                        <ReasonWithheld>String</ReasonWithheld>
-                        <Description>String</Description>
-                        <Type>String</Type>
-                        <Function>String</Function>
+                        <ReasonWithheld>Reason for Confidentiality</ReasonWithheld>
+                        <Description>Description of reason for Confidentiality</Description>
+                        <Type>Landline</Type>
+                        <Function>Agency Main Number</Function>
                         <TollFree>true</TollFree>
-                        <Department>String</Department>
-                        <CountryPrefix>String</CountryPrefix>
+                        <Department>Front Office</Department>
+                        <CountryPrefix>011</CountryPrefix>
                 </Phone>
                 <URL>
-                        <Address>String</Address>
-                        <Note>String</Note>
+                        <Address>www.agencywebsite.org</Address>
+                        <Note>Notes regarding agency website</Note>
                 </URL>
-                <Email>A@A.AA</Email>
+                <Email>info@agency.com</Email>
                 <Contact>
-                        <ID>String</ID>
-                        <AgencyID>String</AgencyID>
-                        <ServiceID>String</ServiceID>
-                        <Department>String</Department>
-                        <Title>String</Title>
-                        <Name>String</Name>
-                        <Nickname>String</Nickname>
-                        <ContactEmail>A@A.AA</ContactEmail>
+                        <ID>C1234</ID>
+                        <AgencyID>A1234</AgencyID>
+                        <ServiceID>S1234</ServiceID>
+                        <Department>Department Name</Department>
+                        <Title>Resource Manager</Title>
+                        <Name>Jane Smith</Name>
+                        <Nickname>Janey</Nickname>
+                        <ContactEmail>jane.smith@agency.com</ContactEmail>
                         <ContactPhone>
                                 <Phone>String</Phone>
                                 <Confidential>true</Confidential>
-                                <ReasonWithheld>String</ReasonWithheld>
-                                <Description>String</Description>
-                                <Type>String</Type>
-                                <Function>String</Function>
-                                <TollFree>true</TollFree>
-                                <Department>String</Department>
-                                <CountryPrefix>String</CountryPrefix>
+                                <ReasonWithheld>Unlisted number</ReasonWithheld>
+                                <Description>Cell number of resource manager</Description>
+                                <Type>Cell phone</Type>
+                                <Function>Resource Manager</Function>
+                                <TollFree>false</TollFree>
+                                <Department>Department Name</Department>
+                                <CountryPrefix>011</CountryPrefix>
                         </ContactPhone>
-                        <ContactType>String</ContactType>
+                        <ContactType>Resource Manager</ContactType>
                 </Contact>
                 <LicenseAccreditation>
-                        <License>String</License>
-                        <LicensedBy>String</LicensedBy>
+                        <License>License Name</License>
+                        <LicensedBy>Licensor</LicensedBy>
                 </LicenseAccreditation>
                 <TaxStatus>String</TaxStatus>
                 <Funding>
-                        <Source>String</Source>
-                        <ID>String</ID>
-                        <AgencyID>String</AgencyID>
-                        <Service>String</Service>
+                        <FundingID>F1234</FundingID>
+                        <AgencyID>A1234</AgencyID>
+                        <ServiceID>S1234</ServiceID>
+                        <Source>Government Grant</Source>
+                        <SourceDescription>Government Grant from XYZ</SourceDescription>
                 </Funding>
-                <ExcludeFromWebsite>true</ExcludeFromWebsite>
-                <YearIncorporated>String</YearIncorporated>
-                <FEIN>String</FEIN>
+                <ExcludeFromWebsite>false</ExcludeFromWebsite>
+                <YearIncorporated>2016</YearIncorporated>
+                <FEIN>87-8573645</FEIN>
                 <AgencyOffersService>String</AgencyOffersService>
-                <MetaData>
-                        <ID>String</ID>
-                        <ResourceID>String</ResourceID>
-                        <FieldName>String</FieldName>
-                        <PreviousValue>String</PreviousValue>
-                        <UpdatedBy>String</UpdatedBy>
-                </MetaData>
         </Agency>
         <Site>
-                <ID>String</ID>
-                <AgencyID>String</AgencyID>
-                <Title>String</Title>
-                <Description>String</Description>
-                <Directions>String</Directions>
+                <ID>ST1234</ID>
+                <AgencyID>A1234</AgencyID>
+                <Title>Agency Site 1</Title>
+                <Description>A site where Sample Agency provides services</Description>
+                <Directions>Take exit 16 and turn left at second red light.</Directions>
                 <AlternateName>
-                        <AlternateName>String</AlternateName>
+                        <AlternateName>Alternate Site Name</AlternateName>
                         <Confidential>true</Confidential>
-                        <Description>String</Description>
+                        <Description>Describe why if Confidential = true</Description>
                 </AlternateName>
                 <MailingAddress>
-                        <AddressID>String</AddressID>
-                        <Line1>String</Line1>
-                        <Line2>String</Line2>
-                        <City>String</City>
-                        <County>String</County>
-                        <State>String</State>
-                        <PostalCode>String</PostalCode>
-                        <Country>String</Country>
-                        <Confidential>true</Confidential>
-                        <Description>String</Description>
-                        <ReasonWithheld>String</ReasonWithheld>
-                        <IsMainAgencyAddress>true</IsMainAgencyAddress>
-                        <IsPhysicalAddress>true</IsPhysicalAddress>
-                        <IsMailingAddress>true</IsMailingAddress>
-                        <MetaData>
-                                <ID>String</ID>
-                                <ResourceID>String</ResourceID>
-                                <FieldName>String</FieldName>
-                                <PreviousValue>String</PreviousValue>
-                                <UpdatedBy>String</UpdatedBy>
-                        </MetaData>
+                        <AddressID>AD1234</AddressID>
+                        <Line1>PO Box 123</Line1>
+                        <Line2>PO Station</Line2>
+                        <City>Anytown</City>
+                        <County>Springfield</County>
+                        <State>Utah</State>
+                        <PostalCode>33333</PostalCode>
+                        <Country>US</Country>
+                        <Confidential>false</Confidential>
+                        <Description>Use when Confidential = true</Description>
+                        <ReasonWithheld>Use when confidential = true</ReasonWithheld>
+                        <MainAgencyAddress>false</MainAgencyAddress>
+                        <PhysicalAddress>false</PhysicalAddress>
+                        <MailingAddress>true</MailingAddress>
                 </MailingAddress>
                 <PhysicalAddress>
-                        <AddressID>String</AddressID>
-                        <Line1>String</Line1>
-                        <Line2>String</Line2>
-                        <City>String</City>
-                        <County>String</County>
-                        <State>String</State>
-                        <PostalCode>String</PostalCode>
-                        <Country>String</Country>
+                        <AddressID>AD9876</AddressID>
+                        <Line1>34 Smith Street</Line1>
+                        <Line2>Unit 1L</Line2>
+                        <City>Anytown</City>
+                        <County>Springfield</County>
+                        <State>Utah</State>
+                        <PostalCode>33333</PostalCode>
+                        <Country>US</Country>
                         <Confidential>true</Confidential>
-                        <Description>String</Description>
-                        <ReasonWithheld>String</ReasonWithheld>
-                        <IsMainAgencyAddress>true</IsMainAgencyAddress>
-                        <IsPhysicalAddress>true</IsPhysicalAddress>
-                        <IsMailingAddress>true</IsMailingAddress>
-                        <MetaData>
-                                <ID>String</ID>
-                                <ResourceID>String</ResourceID>
-                                <FieldName>String</FieldName>
-                                <PreviousValue>String</PreviousValue>
-                                <UpdatedBy>String</UpdatedBy>
-                        </MetaData>
+                        <Description>Required when Confidential = true</Description>
+                        <ReasonWithheld>Required when Confidential = true</ReasonWithheld>
+                        <MainAgencyAddress>true</MainAgencyAddress>
+                        <PhysicalAddress>true</PhysicalAddress>
+                        <MailingAddress>false</MailingAddress>
                 </PhysicalAddress>
                 <NoPhysicalAddress>
-                        <NoPhysicalAddress>true</NoPhysicalAddress>
-                        <Description>String</Description>
-                        <Explanation>String</Explanation>
+                        <NoPhysicalAddress>false</NoPhysicalAddress>
+                        <Description>Describe when Site has no physical address</Description>
+                        <Explanation>Explain when site has no physical address</Explanation>
                 </NoPhysicalAddress>
                 <OtherAddress>
-                        <AddressID>String</AddressID>
-                        <Line1>String</Line1>
-                        <Line2>String</Line2>
-                        <City>String</City>
-                        <County>String</County>
-                        <State>String</State>
-                        <PostalCode>String</PostalCode>
-                        <Country>String</Country>
+                        <AddressID>AD5432</AddressID>
+                        <Line1>55 Alternate Street</Line1>
+                        <Line2>Suite 2</Line2>
+                        <City>Anytown</City>
+                        <County>Springfield</County>
+                        <State>Utah</State>
+                        <PostalCode>33333</PostalCode>
+                        <Country>US</Country>
                         <Confidential>true</Confidential>
-                        <Description>String</Description>
-                        <ReasonWithheld>String</ReasonWithheld>
-                        <IsMainAgencyAddress>true</IsMainAgencyAddress>
-                        <IsPhysicalAddress>true</IsPhysicalAddress>
-                        <IsMailingAddress>true</IsMailingAddress>
-                        <MetaData>
-                                <ID>String</ID>
-                                <ResourceID>String</ResourceID>
-                                <FieldName>String</FieldName>
-                                <PreviousValue>String</PreviousValue>
-                                <UpdatedBy>String</UpdatedBy>
-                        </MetaData>
+                        <Description>Describe when Confidential = true</Description>
+                        <ReasonWithheld>Reason when Confidential = true</ReasonWithheld>
+                        <MainAgencyAddress>false</MainAgencyAddress>
+                        <PhysicalAddress>true</PhysicalAddress>
+                        <MailingAddress>false</MailingAddress>
                 </OtherAddress>
-                <CrossStreet>String</CrossStreet>
+                <CrossStreet>Hwy 18 & Smith Street</CrossStreet>
                 <Phone>
-                        <Phone>String</Phone>
-                        <Confidential>true</Confidential>
-                        <ReasonWithheld>String</ReasonWithheld>
-                        <Description>String</Description>
-                        <Type>String</Type>
-                        <Function>String</Function>
+                        <Phone>(800) 777-8888</Phone>
+                        <Confidential>false</Confidential>
+                        <ReasonWithheld>Reason when Confidential = true</ReasonWithheld>
+                        <Description>Description when Confidential = true</Description>
+                        <Type>Landline</Type>
+                        <Function>Main Site Phone</Function>
                         <TollFree>true</TollFree>
-                        <Department>String</Department>
-                        <CountryPrefix>String</CountryPrefix>
+                        <Department>Program Management</Department>
+                        <CountryPrefix>011</CountryPrefix>
                 </Phone>
                 <URL>
-                        <Address>String</Address>
-                        <Note>String</Note>
+                        <Address>www.sitewebsite.org</Address>
+                        <Note>Notes regarding site's website and URL</Note>
                 </URL>
                 <InternetResource>
-                        <Url>String</Url>
-                        <Description>String</Description>
+                        <Url>ftp.sitedownloads.org</Url>
+                        <Description>Describe internet resource.  Can be FTP site, mailing list, or other internet-based resource.</Description>
                 </InternetResource>
-                <Email>A@A.AA</Email>
+                <Email>info@agencysite.com</Email>
                 <Contact>
-                        <ID>String</ID>
-                        <AgencyID>String</AgencyID>
-                        <ServiceID>String</ServiceID>
-                        <Department>String</Department>
-                        <Title>String</Title>
-                        <Name>String</Name>
-                        <Nickname>String</Nickname>
-                        <ContactEmail>A@A.AA</ContactEmail>
+                        <ID>C7654</ID>
+                        <AgencyID>A7654</AgencyID>
+                        <ServiceID>S7890</ServiceID>
+                        <Department>Program Management</Department>
+                        <Title>Senior Program Manager</Title>
+                        <Name>Michael King</Name>
+                        <Nickname>Mike</Nickname>
+                        <ContactEmail>mike.king@agencysite.com</ContactEmail>
                         <ContactPhone>
-                                <Phone>String</Phone>
-                                <Confidential>true</Confidential>
-                                <ReasonWithheld>String</ReasonWithheld>
-                                <Description>String</Description>
-                                <Type>String</Type>
-                                <Function>String</Function>
-                                <TollFree>true</TollFree>
-                                <Department>String</Department>
-                                <CountryPrefix>String</CountryPrefix>
+                                <Phone>(333) 333-3333</Phone>
+                                <Confidential>false</Confidential>
+                                <ReasonWithheld>Reason if Confidential = true</ReasonWithheld>
+                                <Description>Description if Confidential = true</Description>
+                                <Type>Landline</Type>
+                                <Function>Main Program Management department line</Function>
+                                <TollFree>false</TollFree>
+                                <Department>Program Management</Department>
+                                <CountryPrefix>011</CountryPrefix>
                         </ContactPhone>
-                        <ContactType>String</ContactType>
+                        <ContactType>Program Manager</ContactType>
                 </Contact>
                 <OpenHours>
-                        <dayOpen>Friday</dayOpen>
+                        <dayOpen>Monday</dayOpen>
                         <TimeOpens>09:30:47+05:00</TimeOpens>
-                        <TimeCloses>09:30:47+05:00</TimeCloses>
+                        <TimeCloses>05:30:47+05:00</TimeCloses>
+                </OpenHours>
+                <OpenHours>
+                        <dayOpen>Tuesday</dayOpen>
+                        <TimeOpens>09:30:47+05:00</TimeOpens>
+                        <TimeCloses>05:30:47+05:00</TimeCloses>
                 </OpenHours>
                 <SpecialHours>
-                        <SpecialHoursStartDate>1957-08-13</SpecialHoursStartDate>
-                        <SpecialHoursEndDate>1957-08-13</SpecialHoursEndDate>
-                        <SpecialOpenTime>09:30:47+05:00</SpecialOpenTime>
-                        <SpecialCloseTime>09:30:47+05:00</SpecialCloseTime>
+                        <SpecialHoursStartDate>2016-12-23</SpecialHoursStartDate>
+                        <SpecialHoursEndDate>2016-12-26</SpecialHoursEndDate>
+                        <SpecialOpenTime>11:30:47+05:00</SpecialOpenTime>
+                        <SpecialCloseTime>01:30:47+05:00</SpecialCloseTime>
                 </SpecialHours>
                 <Languages>
-                        <LanguageName>String</LanguageName>
+                        <LanguageName>English, Spanish</LanguageName>
                         <LanguageHours>
-                                <dayOpen>Thursday</dayOpen>
+                                <dayOpen>Wednesday</dayOpen>
                                 <TimeOpens>09:30:47+05:00</TimeOpens>
-                                <TimeCloses>09:30:47+05:00</TimeCloses>
+                                <TimeCloses>05:30:47+05:00</TimeCloses>
                         </LanguageHours>
-                        <Notes>String</Notes>
+                        <Notes>Notes regarding availability of language at this site.</Notes>
                 </Languages>
-                <DisabilitiesAccess>String</DisabilitiesAccess>
-                <PhysicalLocationDescription>String</PhysicalLocationDescription>
-                <BusServiceAccess>String</BusServiceAccess>
+                <DisabilitiesAccess>Access ramp, elevators available</DisabilitiesAccess>
+                <PhysicalLocationDescription>Office containing program management staff</PhysicalLocationDescription>
+                <BusServiceAccess>Bus stop 2 blocks away</BusServiceAccess>
                 <SpatialLocation>
-                        <Description>String</Description>
-                        <Datum>String</Datum>
-                        <Latitude>+0.0</Latitude>
-                        <Longitude>+0.0</Longitude>
+                        <Description>Somewhere in Utah</Description>
+                        <Datum>Geodetic Vertical Datum</Datum>
+                        <Latitude>+27.7731</Latitude>
+                        <Longitude>+82.6400</Longitude>
                 </SpatialLocation>
                 <Status>active</Status>
                 <PublicAccessToTransportation>true</PublicAccessToTransportation>
                 <ExcludeFromWebsite>true</ExcludeFromWebsite>
-                <ExcludeFromDirectory>true</ExcludeFromDirectory>
-                <MetaData>
-                        <ID>String</ID>
-                        <ResourceID>String</ResourceID>
-                        <FieldName>String</FieldName>
-                        <PreviousValue>String</PreviousValue>
-                        <UpdatedBy>String</UpdatedBy>
-                </MetaData>
+                <ExcludeFromDirectory>false</ExcludeFromDirectory>
         </Site>
         <Service>
-                <ID>String</ID>
-                <Title>String</Title>
-                <Description>String</Description>
-                <AgencyID>String</AgencyID>
-                <SiteID>String</SiteID>
-                <ServiceGroupID>String</ServiceGroupID>
+                <ID>SV3456</ID>
+                <Title>Food Banks</Title>
+                <Description>Sample Agency provides food banks across the United States</Description>
+                <AgencyID>A3456</AgencyID>
+                <SiteID>S9876</SiteID>
+                <ServiceGroupID>SG7654</ServiceGroupID>
                 <ResourceInfo>
                         <Contact>
-                                <ID>String</ID>
-                                <AgencyID>String</AgencyID>
-                                <ServiceID>String</ServiceID>
-                                <Department>String</Department>
-                                <Title>String</Title>
-                                <Name>String</Name>
-                                <Nickname>String</Nickname>
-                                <ContactEmail>A@A.AA</ContactEmail>
+                                <ID>9876</ID>
+                                <AgencyID>A7654</AgencyID>
+                                <ServiceID>SV3456</ServiceID>
+                                <Department>Program Management</Department>
+                                <Title>Senior Administrator</Title>
+                                <Name>David Clark</Name>
+                                <Nickname>Dave</Nickname>
+                                <ContactEmail>dave.clark@foodbankagency.org</ContactEmail>
                                 <ContactPhone>
-                                        <Phone>String</Phone>
-                                        <Confidential>true</Confidential>
-                                        <ReasonWithheld>String</ReasonWithheld>
-                                        <Description>String</Description>
-                                        <Type>String</Type>
-                                        <Function>String</Function>
-                                        <TollFree>true</TollFree>
-                                        <Department>String</Department>
-                                        <CountryPrefix>String</CountryPrefix>
+                                        <Phone>(555) 777-8888</Phone>
+                                        <Confidential>false</Confidential>
+                                        <ReasonWithheld>provide Reason if Confidential = true</ReasonWithheld>
+                                        <Description>provide Description if Confidential = true</Description>
+                                        <Type>Program Management main line</Type>
+                                        <Function>Program Management department phone</Function>
+                                        <TollFree>false</TollFree>
+                                        <Department>Program Management</Department>
+                                        <CountryPrefix>011</CountryPrefix>
                                 </ContactPhone>
-                                <ContactType>String</ContactType>
+                                <ContactType>Program Manager</ContactType>
                         </Contact>
-                        <ResourceSpecialist>String</ResourceSpecialist>
+                        <ResourceSpecialist>Maureen Murphy</ResourceSpecialist>
                         <AvailableForDirectory>true</AvailableForDirectory>
                         <AvailableForReferral>true</AvailableForReferral>
                         <AvailableForResearch>true</AvailableForResearch>
-                        <DateAdded>1957-08-13</DateAdded>
-                        <DateLastVerified>1957-08-13</DateLastVerified>
-                        <DateOfLastAction>1957-08-13</DateOfLastAction>
-                        <LastActionType>String</LastActionType>
+                        <DateAdded>2011-08-13</DateAdded>
+                        <DateLastVerified>2011-08-13</DateLastVerified>
+                        <DateOfLastAction>2016-08-13</DateOfLastAction>
+                        <LastActionType>Updated</LastActionType>
                 </ResourceInfo>
-                <WaitTime>String</WaitTime>
+                <WaitTime>Less than one day</WaitTime>
                 <ApplicationProcess>
-                        <Title>String</Title>
-                        <Description>String</Description>
+                        <Title>Food Banks application process</Title>
+                        <Description>Apply in person with in-State ID when food bank is open.</Description>
                 </ApplicationProcess>
-                <MetaData>
-                        <ID>String</ID>
-                        <ResourceID>String</ResourceID>
-                        <FieldName>String</FieldName>
-                        <PreviousValue>String</PreviousValue>
-                        <UpdatedBy>String</UpdatedBy>
-                </MetaData>
         </Service>
         <SiteService>
-                <ID>String</ID>
-                <SiteID>String</SiteID>
-                <ServiceID>String</ServiceID>
-                <ServiceGroupID>String</ServiceGroupID>
-                <AgencyID>String</AgencyID>
-                <Title>String</Title>
-                <Description>String</Description>
+                <ID>SS6543</ID>
+                <SiteID>S8765</SiteID>
+                <ServiceID>SV9876</ServiceID>
+                <ServiceGroupID>SG5678</ServiceGroupID>
+                <AgencyID>A6543</AgencyID>
+                <Title>Food Bank</Title>
+                <Description>This site offers a food bank on Tuesdays.</Description>
                 <Phone>
-                        <Phone>String</Phone>
-                        <Confidential>true</Confidential>
-                        <ReasonWithheld>String</ReasonWithheld>
-                        <Description>String</Description>
-                        <Type>String</Type>
-                        <Function>String</Function>
+                        <Phone>(800) 777-8888</Phone>
+                        <Confidential>false</Confidential>
+                        <ReasonWithheld>Reason if confidential = true</ReasonWithheld>
+                        <Description>Description if Confidential = true</Description>
+                        <Type>Landline</Type>
+                        <Function>Food bank main line</Function>
                         <TollFree>true</TollFree>
-                        <Department>String</Department>
-                        <CountryPrefix>String</CountryPrefix>
+                        <Department>Food Bank</Department>
+                        <CountryPrefix>011</CountryPrefix>
                 </Phone>
                 <Contact>
-                        <ID>String</ID>
-                        <AgencyID>String</AgencyID>
-                        <ServiceID>String</ServiceID>
-                        <Department>String</Department>
-                        <Title>String</Title>
-                        <Name>String</Name>
-                        <Nickname>String</Nickname>
-                        <ContactEmail>A@A.AA</ContactEmail>
+                        <ID>8765</ID>
+                        <AgencyID>A7654</AgencyID>
+                        <ServiceID>SV9876</ServiceID>
+                        <Department>Food Bank</Department>
+                        <Title>Food Bank Manager</Title>
+                        <Name>Fred Anderson</Name>
+                        <Nickname>Fred</Nickname>
+                        <ContactEmail>fred.anderson@foodbank.org</ContactEmail>
                         <ContactPhone>
-                                <Phone>String</Phone>
-                                <Confidential>true</Confidential>
-                                <ReasonWithheld>String</ReasonWithheld>
-                                <Description>String</Description>
-                                <Type>String</Type>
-                                <Function>String</Function>
+                                <Phone>(800) 555-5555</Phone>
+                                <Confidential>false</Confidential>
+                                <ReasonWithheld>Reason if Confidential = true</ReasonWithheld>
+                                <Description>Description if Confidential = true</Description>
+                                <Type>Food bank main phone</Type>
+                                <Function>Food bank main phone</Function>
                                 <TollFree>true</TollFree>
-                                <Department>String</Department>
-                                <CountryPrefix>String</CountryPrefix>
+                                <Department>Food bank</Department>
+                                <CountryPrefix>011</CountryPrefix>
                         </ContactPhone>
-                        <ContactType>String</ContactType>
+                        <ContactType>Food Bank main phone</ContactType>
                 </Contact>
                 <URL>
-                        <Address>String</Address>
-                        <Note>String</Note>
+                        <Address>www.foodbankwebsite.org</Address>
+                        <Note>Notes regarding food bank's website.</Note>
                 </URL>
-                <Email>A@A.AA</Email>
+                <Email>info@foodbank.org</Email>
                 <OpenHours>
-                        <dayOpen>Sunday</dayOpen>
-                        <TimeOpens>09:30:47+05:00</TimeOpens>
-                        <TimeCloses>09:30:47+05:00</TimeCloses>
+                        <dayOpen>Tuesday</dayOpen>
+                        <TimeOpens>08:30:47+05:00</TimeOpens>
+                        <TimeCloses>20:30:47+05:00</TimeCloses>
                 </OpenHours>
                 <SpecialHours>
-                        <SpecialHoursStartDate>1957-08-13</SpecialHoursStartDate>
-                        <SpecialHoursEndDate>1957-08-13</SpecialHoursEndDate>
+                        <SpecialHoursStartDate>2015-08-13</SpecialHoursStartDate>
+                        <SpecialHoursEndDate>2016-08-13</SpecialHoursEndDate>
                         <SpecialOpenTime>09:30:47+05:00</SpecialOpenTime>
-                        <SpecialCloseTime>09:30:47+05:00</SpecialCloseTime>
+                        <SpecialCloseTime>19:30:47+05:00</SpecialCloseTime>
                 </SpecialHours>
                 <Seasonal>
-                        <Description>String</Description>
-                        <SpecialHoursStartDate>1957-08-13</SpecialHoursStartDate>
-                        <SpecialHoursEndDate>1957-08-13</SpecialHoursEndDate>
+                        <Description>If this service is only offered certain times of the year, describe.</Description>
+                        <SpecialHoursStartDate>2015-08-13</SpecialHoursStartDate>
+                        <SpecialHoursEndDate>2016-08-13</SpecialHoursEndDate>
                         <SpecialOpenTime>09:30:47+05:00</SpecialOpenTime>
-                        <SpecialCloseTime>09:30:47+05:00</SpecialCloseTime>
+                        <SpecialCloseTime>19:30:47+05:00</SpecialCloseTime>
                 </Seasonal>
                 <Taxonomy>
-                        <TaxonomyCode>String</TaxonomyCode>
-                        <TaxonomyTerm>String</TaxonomyTerm>
+                        <TaxonomyCode>BD-1875.2000</TaxonomyCode>
+                        <TaxonomyTerm>Food Banks/Food Distribution Warehouses</TaxonomyTerm>
                 </Taxonomy>
                 <Languages>
-                        <LanguageName>String</LanguageName>
+                        <LanguageName>English, Spanish, French</LanguageName>
                         <LanguageHours>
-                                <dayOpen>Sunday</dayOpen>
-                                <TimeOpens>09:30:47+05:00</TimeOpens>
-                                <TimeCloses>09:30:47+05:00</TimeCloses>
+                                <dayOpen>Tuesday</dayOpen>
+                                <TimeOpens>08:30:47+05:00</TimeOpens>
+                                <TimeCloses>20:30:47+05:00</TimeCloses>
                         </LanguageHours>
-                        <Notes>String</Notes>
+                        <Notes>Speakers of these languages usually available at food bank during all open hours.</Notes>
                 </Languages>
-                <TranslationService>String</TranslationService>
+                <TranslationService>Not available</TranslationService>
                 <ServiceArea>
-                        <Name>String</Name>
-                        <PostalCode>String</PostalCode>
+                        <Name>Food Bank Service Area</Name>
+                        <PostalCode>33333, 33334, 33335</PostalCode>
                         <CensusTract>String</CensusTract>
-                        <City>String</City>
-                        <County>String</County>
-                        <State>String</State>
-                        <Country>String</Country>
-                        <Description>String</Description>
-                        <CustomAreaLabel>String</CustomAreaLabel>
+                        <City>Anytown</City>
+                        <County>Springfield</County>
+                        <State>Utah</State>
+                        <Country>US</Country>
+                        <Description>Serving Springfield County, UT and surrounding areas</Description>
+                        <CustomAreaLabel>Springfield County area, UT</CustomAreaLabel>
                 </ServiceArea>
                 <ResourceInfo>
                         <Contact>
-                                <ID>String</ID>
-                                <AgencyID>String</AgencyID>
-                                <ServiceID>String</ServiceID>
-                                <Department>String</Department>
-                                <Title>String</Title>
-                                <Name>String</Name>
-                                <Nickname>String</Nickname>
-                                <ContactEmail>A@A.AA</ContactEmail>
+                                <ID>7654</ID>
+                                <AgencyID>A9876</AgencyID>
+                                <ServiceID>SV0987</ServiceID>
+                                <Department>Program Management</Department>
+                                <Title>Program Manager</Title>
+                                <Name>Avery Brown</Name>
+                                <Nickname>Avery</Nickname>
+                                <ContactEmail>avery.brown@foodbank.org</ContactEmail>
                                 <ContactPhone>
-                                        <Phone>String</Phone>
+                                        <Phone>(444) 888-9999</Phone>
                                         <Confidential>true</Confidential>
-                                        <ReasonWithheld>String</ReasonWithheld>
-                                        <Description>String</Description>
-                                        <Type>String</Type>
-                                        <Function>String</Function>
-                                        <TollFree>true</TollFree>
-                                        <Department>String</Department>
-                                        <CountryPrefix>String</CountryPrefix>
+                                        <ReasonWithheld>Private number IT administrator</ReasonWithheld>
+                                        <Description>Private number IT administrator</Description>
+                                        <Type>Cell phone</Type>
+                                        <Function>IT adminstrator phone</Function>
+                                        <TollFree>false</TollFree>
+                                        <Department>Program Management</Department>
+                                        <CountryPrefix>011</CountryPrefix>
                                 </ContactPhone>
-                                <ContactType>String</ContactType>
+                                <ContactType>IT Administrator/Program Manager</ContactType>
                         </Contact>
-                        <ResourceSpecialist>String</ResourceSpecialist>
+                        <ResourceSpecialist>Avery Brown</ResourceSpecialist>
                         <AvailableForDirectory>true</AvailableForDirectory>
                         <AvailableForReferral>true</AvailableForReferral>
                         <AvailableForResearch>true</AvailableForResearch>
-                        <DateAdded>1957-08-13</DateAdded>
-                        <DateLastVerified>1957-08-13</DateLastVerified>
-                        <DateOfLastAction>1957-08-13</DateOfLastAction>
-                        <LastActionType>String</LastActionType>
+                        <DateAdded>2015-08-13</DateAdded>
+                        <DateLastVerified>2015-08-13</DateLastVerified>
+                        <DateOfLastAction>2015-08-13</DateOfLastAction>
+                        <LastActionType>Added</LastActionType>
                 </ResourceInfo>
                 <InternetResource>
-                        <Url>String</Url>
-                        <Description>String</Description>
+                        <Url>www.foodbankresource.org</Url>
+                        <Description>Resource such as FTP, mailing list, other internet-based resource.  Describe.</Description>
                 </InternetResource>
                 <DocumentsRequired>
-                        <Title>String</Title>
-                        <Description>String</Description>
+                        <Title>State issued ID card</Title>
+                        <Description>State issued ID card with in-state address</Description>
                 </DocumentsRequired>
                 <ApplicationProcess>
-                        <Title>String</Title>
-                        <Description>String</Description>
+                        <Title>Food Bank Application Process</Title>
+                        <Description>Please apply in person on Tuesdays with in-State photo ID</Description>
                 </ApplicationProcess>
-                <FeeStructure>String</FeeStructure>
-                <PaymentMethodAccepted>String</PaymentMethodAccepted>
-                <GeneralEligibility>String</GeneralEligibility>
+                <FeeStructure>free</FeeStructure>
+                <PaymentMethodAccepted>Mastercard</PaymentMethodAccepted>
+                <GeneralEligibility>Must be Utah resident</GeneralEligibility>
                 <AgeRequirement>
-                        <MinimumAge>String</MinimumAge>
-                        <MaximumAge>String</MaximumAge>
+                        <MinimumAge>0</MinimumAge>
+                        <MaximumAge>120</MaximumAge>
                 </AgeRequirement>
                 <GenderRequirement>
-                        <Gender>String</Gender>
-                        <MinimumAge>String</MinimumAge>
-                        <MaximumAge>String</MaximumAge>
+                        <Gender>Male, Female, Other</Gender>
+                        <MinimumAge>0</MinimumAge>
+                        <MaximumAge>120</MaximumAge>
                 </GenderRequirement>
-                <FamilyRequirements>String</FamilyRequirements>
-                <IncomeRequirements>String</IncomeRequirements>
-                <ResidencyRequirements>String</ResidencyRequirements>
+                <FamilyRequirements>Any</FamilyRequirements>
+                <IncomeRequirements>Less than 200% of federal poverty level</IncomeRequirements>
+                <ResidencyRequirements>Must be resident of Utah</ResidencyRequirements>
                 <Status>active</Status>
                 <ServiceNotAlwaysAvailable>true</ServiceNotAlwaysAvailable>
-                <MetaData>
-                        <ID>String</ID>
-                        <ResourceID>String</ResourceID>
-                        <FieldName>String</FieldName>
-                        <PreviousValue>String</PreviousValue>
-                        <UpdatedBy>String</UpdatedBy>
-                </MetaData>
         </SiteService>
         <ServiceGroup>
-                <ID>String</ID>
-                <Name>String</Name>
-                <ProgramName>String</ProgramName>
-                <Description>String</Description>
+                <ID>SG8765</ID>
+                <Name>Our Service Group</Name>
+                <ProgramName>Service Group's Program</ProgramName>
+                <Description>Description of Service Group's program</Description>
                 <ApplicationProcess>
-                        <Title>String</Title>
-                        <Description>String</Description>
+                        <Title>Our Application Process</Title>
+                        <Description>Describe the necessary steps in the application process.</Description>
                 </ApplicationProcess>
                 <ResourceInfo>
                         <Contact>
-                                <ID>String</ID>
-                                <AgencyID>String</AgencyID>
-                                <ServiceID>String</ServiceID>
-                                <Department>String</Department>
-                                <Title>String</Title>
-                                <Name>String</Name>
-                                <Nickname>String</Nickname>
-                                <ContactEmail>A@A.AA</ContactEmail>
+                                <ID>C7890</ID>
+                                <AgencyID>A5432</AgencyID>
+                                <ServiceID>SV7654</ServiceID>
+                                <Department>IT Department</Department>
+                                <Title>Data Analyst</Title>
+                                <Name>Mary O'Leary</Name>
+                                <Nickname>Mary</Nickname>
+                                <ContactEmail>mary.oleary@service.org</ContactEmail>
                                 <ContactPhone>
-                                        <Phone>String</Phone>
-                                        <Confidential>true</Confidential>
-                                        <ReasonWithheld>String</ReasonWithheld>
-                                        <Description>String</Description>
-                                        <Type>String</Type>
-                                        <Function>String</Function>
-                                        <TollFree>true</TollFree>
-                                        <Department>String</Department>
-                                        <CountryPrefix>String</CountryPrefix>
+                                        <Phone>(777) 555-9999</Phone>
+                                        <Confidential>false</Confidential>
+                                        <ReasonWithheld>Provide reason if Confidential = true</ReasonWithheld>
+                                        <Description>Provide description if Confidential = true</Description>
+                                        <Type>Landline</Type>
+                                        <Function>IT Department phone</Function>
+                                        <TollFree>false</TollFree>
+                                        <Department>IT Department</Department>
+                                        <CountryPrefix>011</CountryPrefix>
                                 </ContactPhone>
-                                <ContactType>String</ContactType>
+                                <ContactType>IT Department</ContactType>
                         </Contact>
-                        <ResourceSpecialist>String</ResourceSpecialist>
+                        <ResourceSpecialist>Joe Smith</ResourceSpecialist>
                         <AvailableForDirectory>true</AvailableForDirectory>
                         <AvailableForReferral>true</AvailableForReferral>
                         <AvailableForResearch>true</AvailableForResearch>
-                        <DateAdded>1957-08-13</DateAdded>
-                        <DateLastVerified>1957-08-13</DateLastVerified>
-                        <DateOfLastAction>1957-08-13</DateOfLastAction>
-                        <LastActionType>String</LastActionType>
+                        <DateAdded>2015-08-13</DateAdded>
+                        <DateLastVerified>2015-08-13</DateLastVerified>
+                        <DateOfLastAction>2015-08-13</DateOfLastAction>
+                        <LastActionType>Updated</LastActionType>
                 </ResourceInfo>
         </ServiceGroup>
 </Source>
+
