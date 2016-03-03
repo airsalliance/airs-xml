@@ -27,7 +27,6 @@
                         <xs:element name="MainAgencyAddress" type="xs:boolean" minOccurs="1"/>
                         <xs:element name="PhysicalAddress" type="xs:boolean" minOccurs="0"/>
                         <xs:element name="MailingAddress" type="xs:boolean" minOccurs="0"/>
-                
                 </xs:sequence>
         </xs:group>
         <xs:complexType name="ageRequirement">
@@ -103,12 +102,12 @@
                 </xs:sequence>
         </xs:complexType>
         <xs:complexType name="funding"> 
-<xs:sequence> 
-<xs:element name="FundingID" type="xs:string"/>   
-<xs:element name="AgencyID" type="xs:string"/>   
-<xs:element name="ServiceID" type="xs:string"/>  
-<xs:element name="Source" type="xs:string"/>      
-<xs:element name="SourceDescription" type="xs:string"/>      
+                <xs:sequence>
+                        <xs:element name="FundingID" type="xs:string"/>
+                        <xs:element name="AgencyID" type="xs:string"/>
+                        <xs:element name="ServiceID" type="xs:string"/>
+                        <xs:element name="Source" type="xs:string"/>
+                        <xs:element name="SourceDescription" type="xs:string"/>
                 </xs:sequence>
         </xs:complexType>
         <xs:complexType name="genderRequirement">
@@ -153,7 +152,6 @@
                         <xs:element name="LicensedBy" type="xs:string" minOccurs="0"/>
                 </xs:sequence>
         </xs:complexType>
-
         <xs:complexType name="noPhysicalAddress">
                 <xs:annotation>
                         <xs:documentation>element of Site</xs:documentation>
@@ -276,7 +274,6 @@
                         <xs:element name="ResourceInfo" type="resourceInfo"/>
                         <xs:element name="WaitTime" type="xs:string" minOccurs="0"/>
                         <xs:element name="ApplicationProcess" type="applicationProcess" minOccurs="0" maxOccurs="unbounded"/>
-                        
                 </xs:sequence>
         </xs:complexType>
         <xs:complexType name="serviceGroup">
@@ -398,7 +395,6 @@
                 </xs:annotation>
                 <xs:sequence>
                         <xs:element name="AgencyID" type="xs:string" minOccurs="1"/>
-                        
                         <xs:element name="AgencyName" type="xs:string"/>
                         <xs:element name="Description" type="xs:string" minOccurs="0"/>
                         <xs:element name="AlternateName" type="alternateName" minOccurs="0" maxOccurs="unbounded"/>
@@ -420,7 +416,6 @@
                         <xs:element name="YearIncorporated" type="xs:string"/>
                         <xs:element name="FEIN" type="xs:string"/>
                         <xs:element name="AgencyOffersService" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-                
                 </xs:sequence>
         </xs:complexType>
         <xs:complexType name="site">
@@ -500,7 +495,7 @@
                         <xs:element name="PublicAccessToTransportation" type="xs:boolean"/>
                         <xs:element name="ExcludeFromWebsite" type="xs:boolean"/>
                         <xs:element name="ExcludeFromDirectory" type="xs:boolean"/>
-                
+                        <xs:element name="ResourceInfo" type="resourceInfo"/>
                 </xs:sequence>
         </xs:complexType>
         <xs:complexType name="siteService">
@@ -558,7 +553,6 @@
                         <xs:element name="ResidencyRequirements" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element name="Status" type="status"/>
                         <xs:element name="ServiceNotAlwaysAvailable" type="xs:boolean"/>
-                
                 </xs:sequence>
         </xs:complexType>
 </xs:schema>
