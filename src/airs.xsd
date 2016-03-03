@@ -24,13 +24,12 @@
                                         <xs:documentation>Use this if the address is Confidential, such as a battered women's shelter. While it is possible to code an address as Confidential="true", in this case the address is so confidential that it won't be shared at all.</xs:documentation>
                                 </xs:annotation>
                         </xs:element>
-                        <xs:element name="IsMainAgencyAddress" type="xs:boolean" minOccurs="1"/>
-                        <xs:element name="IsPhysicalAddress" type="xs:boolean" minOccurs="0"/>
-                        <xs:element name="IsMailingAddress" type="xs:boolean" minOccurs="0"/>
-                        <xs:element name="MetaData" type="metaData" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="MainAgencyAddress" type="xs:boolean" minOccurs="1"/>
+                        <xs:element name="PhysicalAddress" type="xs:boolean" minOccurs="0"/>
+                        <xs:element name="MailingAddress" type="xs:boolean" minOccurs="0"/>
+                
                 </xs:sequence>
         </xs:group>
-
         <xs:complexType name="ageRequirement">
                 <xs:annotation>
                         <xs:documentation>element of SiteService</xs:documentation>
@@ -103,12 +102,13 @@
                         <xs:element name="Description" type="xs:string" minOccurs="0"/>
                 </xs:sequence>
         </xs:complexType>
-        <xs:complexType name="funding">
-                <xs:sequence>
-                        <xs:element name="Source" type="xs:string"/>
-                        <xs:element name="ID" type="xs:string"/>
-                        <xs:element name="AgencyID" type="xs:string"/>
-                        <xs:element name="Service" type="xs:string"/>
+        <xs:complexType name="funding"> 
+<xs:sequence> 
+<xs:element name="FundingID" type="xs:string"/>   
+<xs:element name="AgencyID" type="xs:string"/>   
+<xs:element name="ServiceID" type="xs:string"/>  
+<xs:element name="Source" type="xs:string"/>      
+<xs:element name="SourceDescription" type="xs:string"/>      
                 </xs:sequence>
         </xs:complexType>
         <xs:complexType name="genderRequirement">
@@ -153,15 +153,7 @@
                         <xs:element name="LicensedBy" type="xs:string" minOccurs="0"/>
                 </xs:sequence>
         </xs:complexType>
-        <xs:complexType name="metaData">
-                <xs:sequence>
-                        <xs:element name="ID" type="xs:string"/>
-                        <xs:element name="ResourceID" type="xs:string"/>
-                        <xs:element name="FieldName" type="xs:string"/>
-                        <xs:element name="PreviousValue" type="xs:string"/>
-                        <xs:element name="UpdatedBy" type="xs:string"/>
-                </xs:sequence>
-        </xs:complexType>
+
         <xs:complexType name="noPhysicalAddress">
                 <xs:annotation>
                         <xs:documentation>element of Site</xs:documentation>
@@ -266,7 +258,6 @@
                         <xs:element name="CustomAreaLabel" type="xs:string" minOccurs="0"/>
                 </xs:sequence>
         </xs:complexType>
-
         <xs:complexType name="service">
                 <xs:annotation>
                         <xs:documentation>element of Agency</xs:documentation>
@@ -278,17 +269,16 @@
                         <xs:element name="AgencyID" type="xs:string"/>
                         <xs:element name="SiteID" type="xs:string"/>
                         <xs:element name="ServiceGroupID" type="xs:string">
-                              <xs:annotation>
+                                <xs:annotation>
                                         <xs:documentation>An optional value linking this Service to a ServiceGroup (Program)</xs:documentation>
                                 </xs:annotation>
                         </xs:element>
                         <xs:element name="ResourceInfo" type="resourceInfo"/>
                         <xs:element name="WaitTime" type="xs:string" minOccurs="0"/>
                         <xs:element name="ApplicationProcess" type="applicationProcess" minOccurs="0" maxOccurs="unbounded"/>
-                        <xs:element name="MetaData" type="metaData" minOccurs="0" maxOccurs="unbounded"/>
+                        
                 </xs:sequence>
         </xs:complexType>
-
         <xs:complexType name="serviceGroup">
                 <xs:annotation>
                         <xs:documentation>element of Agency</xs:documentation>
@@ -316,7 +306,6 @@
                         <xs:element name="ResourceInfo" type="resourceInfo"/>
                 </xs:sequence>
         </xs:complexType>
-
         <xs:complexType name="spatialLocation">
                 <xs:annotation>
                         <xs:documentation>element of site</xs:documentation>
@@ -409,18 +398,10 @@
                 </xs:annotation>
                 <xs:sequence>
                         <xs:element name="AgencyID" type="xs:string" minOccurs="1"/>
-                        <xs:element name="VendorInternalID" type="xs:string">
-                                <xs:annotation>
-                                        <xs:documentation>This is a unique value representing a vendor's internal way of tracking an agency. This can be used as meta data to uniquely describe an Agency.</xs:documentation>
-                                </xs:annotation>
-                        </xs:element>
+                        
                         <xs:element name="AgencyName" type="xs:string"/>
                         <xs:element name="Description" type="xs:string" minOccurs="0"/>
                         <xs:element name="AlternateName" type="alternateName" minOccurs="0" maxOccurs="unbounded"/>
-
-
-
-
                         <xs:element name="ResourceInfo" type="resourceInfo"/>
                         <xs:element name="Phone" type="phone" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element name="URL" type="url" minOccurs="0" maxOccurs="unbounded"/>
@@ -439,13 +420,12 @@
                         <xs:element name="YearIncorporated" type="xs:string"/>
                         <xs:element name="FEIN" type="xs:string"/>
                         <xs:element name="AgencyOffersService" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-                        <xs:element name="MetaData" type="metaData" minOccurs="0" maxOccurs="unbounded"/>
+                
                 </xs:sequence>
         </xs:complexType>
         <xs:complexType name="site">
                 <xs:annotation>
                         <xs:documentation>element of Agency</xs:documentation>
-
                 </xs:annotation>
                 <xs:sequence>
                         <xs:element name="ID" type="xs:string">
@@ -520,7 +500,7 @@
                         <xs:element name="PublicAccessToTransportation" type="xs:boolean"/>
                         <xs:element name="ExcludeFromWebsite" type="xs:boolean"/>
                         <xs:element name="ExcludeFromDirectory" type="xs:boolean"/>
-                        <xs:element name="MetaData" type="metaData" minOccurs="0" maxOccurs="unbounded"/>
+                
                 </xs:sequence>
         </xs:complexType>
         <xs:complexType name="siteService">
@@ -529,7 +509,6 @@
                         <xs:documentation>SiteService is a specific service offered at a Site, containing both Site ID and Service ID. </xs:documentation>
                 </xs:annotation>
                 <xs:sequence minOccurs="0">
-
                         <xs:element name="ID" type="xs:string"/>
                         <xs:element name="SiteID" type="xs:string"/>
                         <xs:element name="ServiceID" type="xs:string"/>
@@ -570,7 +549,7 @@
                         <xs:element name="GeneralEligibility" type="xs:string" minOccurs="0" maxOccurs="unbounded">
                                 <xs:annotation>
                                         <xs:documentation>General eligibility is an area to list any eligibility requirements for participation or services. This can include any exclusions, both negative and positive requirements (i.e. must have/ can't have are all requirements)</xs:documentation>
-                                 </xs:annotation>
+                                </xs:annotation>
                         </xs:element>
                         <xs:element name="AgeRequirement" type="ageRequirement" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element name="GenderRequirement" type="genderRequirement" minOccurs="0" maxOccurs="unbounded"/>
@@ -579,11 +558,7 @@
                         <xs:element name="ResidencyRequirements" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element name="Status" type="status"/>
                         <xs:element name="ServiceNotAlwaysAvailable" type="xs:boolean"/>
-
-                        <xs:element name="MetaData" type="metaData" minOccurs="0" maxOccurs="unbounded"/>
+                
                 </xs:sequence>
         </xs:complexType>
-
 </xs:schema>
-
-
