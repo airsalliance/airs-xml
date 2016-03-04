@@ -348,7 +348,7 @@
                 <xs:attribute name="OriginTimestamp" type="xs:dateTime" use="required"/>
                 <xs:attribute name="SoftwareVendor" type="xs:string" use="required"/>
                 <xs:attribute name="SoftwareVersion" type="xs:string" use="required"/>
-                <xs:attribute name="TaxonomyVersion" type="xs:string" use="required"/>
+                <xs:attribute name="TaxonomyVersion" type="xs:datetime" use="required"/>
                 <xs:attribute name="SchemaVersion" type="xs:string" use="required"/>
         </xs:complexType>
         <xs:simpleType name="status">
