@@ -9,40 +9,8 @@
                         <Confidential>false</Confidential>
                         <Description>Reason for confidentiality if true</Description>
                 </AlternateName>
-                <ResourceInfo>
-                        <Contact>
-                                <ID>C1234</ID>
-                                <AgencyID>A1234</AgencyID>
-                                <ServiceID>S1234</ServiceID>
-                                <Department>Information Technology</Department>
-                                <Title>Database Manager</Title>
-                                <Name>Joe Jones</Name>
-                                <Nickname>Joey</Nickname>
-                                <ContactEmail>joe.jones@agency.com</ContactEmail>
-                                <ContactPhone>
-                                        <Phone>111-111-1111</Phone>
-                                        <Confidential>false</Confidential>
-                                        <ReasonWithheld>Use only if Confidential = true</ReasonWithheld>
-                                        <Description>Description only if Confidential = true</Description>
-                                        <Type>Landline</Type>
-                                        <Function>IT Department Phone</Function>
-                                        <TollFree>false</TollFree>
-                                        <Department>IT Department</Department>
-                                        <CountryPrefix>011</CountryPrefix>
-                                </ContactPhone>
-                                <ContactType>Database Manager</ContactType>
-                        </Contact>
-                        <ResourceSpecialist>Jane Smith</ResourceSpecialist>
-                        <AvailableForDirectory>true</AvailableForDirectory>
-                        <AvailableForReferral>true</AvailableForReferral>
-                        <AvailableForResearch>true</AvailableForResearch>
-                        <DateAdded>2015-08-13</DateAdded>
-                        <DateLastVerified>2015-08-13</DateLastVerified>
-                        <DateOfLastAction>2015-08-13</DateOfLastAction>
-                        <LastActionType>Update</LastActionType>
-                </ResourceInfo>
                 <Phone>
-                        <Phone>(800) 222-2222</Phone>
+                        <Phone>800-222-2222</Phone>
                         <Confidential>true</Confidential>
                         <ReasonWithheld>Reason for Confidentiality</ReasonWithheld>
                         <Description>Description of reason for Confidentiality</Description>
@@ -95,6 +63,38 @@
                 <YearIncorporated>2016</YearIncorporated>
                 <FEIN>87-8573645</FEIN>
                 <AgencyOffersService>String</AgencyOffersService>
+                <ResourceInfo>
+                        <Contact>
+                                <ID>C1234</ID>
+                                <AgencyID>A1234</AgencyID>
+                                <ServiceID>S1234</ServiceID>
+                                <Department>Information Technology</Department>
+                                <Title>Database Manager</Title>
+                                <Name>Joe Jones</Name>
+                                <Nickname>Joey</Nickname>
+                                <ContactEmail>joe.jones@agency.com</ContactEmail>
+                                <ContactPhone>
+                                        <Phone>111-111-1111</Phone>
+                                        <Confidential>false</Confidential>
+                                        <ReasonWithheld>Use only if Confidential = true</ReasonWithheld>
+                                        <Description>Description only if Confidential = true</Description>
+                                        <Type>Landline</Type>
+                                        <Function>IT Department Phone</Function>
+                                        <TollFree>false</TollFree>
+                                        <Department>IT Department</Department>
+                                        <CountryPrefix>011</CountryPrefix>
+                                </ContactPhone>
+                                <ContactType>Database Manager</ContactType>
+                        </Contact>
+                        <ResourceSpecialist>Jane Smith</ResourceSpecialist>
+                        <AvailableForDirectory>true</AvailableForDirectory>
+                        <AvailableForReferral>true</AvailableForReferral>
+                        <AvailableForResearch>true</AvailableForResearch>
+                        <DateAdded>2015-08-13</DateAdded>
+                        <DateLastVerified>2015-08-13</DateLastVerified>
+                        <DateOfLastAction>2015-08-13</DateOfLastAction>
+                        <LastActionType>Update</LastActionType>
+                </ResourceInfo>
         </Agency>
         <Site>
                 <ID>ST1234</ID>
@@ -160,9 +160,9 @@
                         <PhysicalAddress>true</PhysicalAddress>
                         <MailingAddress>false</MailingAddress>
                 </OtherAddress>
-                <CrossStreet>Hwy 18 & Smith Street</CrossStreet>
+                <CrossStreet>Hwy 18 and Smith Street</CrossStreet>
                 <Phone>
-                        <Phone>(800) 777-8888</Phone>
+                        <Phone>800-777-8888</Phone>
                         <Confidential>false</Confidential>
                         <ReasonWithheld>Reason when Confidential = true</ReasonWithheld>
                         <Description>Description when Confidential = true</Description>
@@ -191,7 +191,7 @@
                         <Nickname>Mike</Nickname>
                         <ContactEmail>mike.king@agencysite.com</ContactEmail>
                         <ContactPhone>
-                                <Phone>(333) 333-3333</Phone>
+                                <Phone>333-333-3333</Phone>
                                 <Confidential>false</Confidential>
                                 <ReasonWithheld>Reason if Confidential = true</ReasonWithheld>
                                 <Description>Description if Confidential = true</Description>
@@ -241,14 +241,6 @@
                 <PublicAccessToTransportation>true</PublicAccessToTransportation>
                 <ExcludeFromWebsite>true</ExcludeFromWebsite>
                 <ExcludeFromDirectory>false</ExcludeFromDirectory>
-        </Site>
-        <Service>
-                <ID>SV3456</ID>
-                <Title>Food Banks</Title>
-                <Description>Sample Agency provides food banks across the United States</Description>
-                <AgencyID>A3456</AgencyID>
-                <SiteID>S9876</SiteID>
-                <ServiceGroupID>SG7654</ServiceGroupID>
                 <ResourceInfo>
                         <Contact>
                                 <ID>9876</ID>
@@ -260,7 +252,7 @@
                                 <Nickname>Dave</Nickname>
                                 <ContactEmail>dave.clark@foodbankagency.org</ContactEmail>
                                 <ContactPhone>
-                                        <Phone>(555) 777-8888</Phone>
+                                        <Phone>555-777-8888</Phone>
                                         <Confidential>false</Confidential>
                                         <ReasonWithheld>provide Reason if Confidential = true</ReasonWithheld>
                                         <Description>provide Description if Confidential = true</Description>
@@ -281,11 +273,51 @@
                         <DateOfLastAction>2016-08-13</DateOfLastAction>
                         <LastActionType>Updated</LastActionType>
                 </ResourceInfo>
+        </Site>
+        <Service>
+                <ID>SV3456</ID>
+                <Title>Food Banks</Title>
+                <Description>Sample Agency provides food banks across the United States</Description>
+                <AgencyID>A3456</AgencyID>
+                <SiteID>S9876</SiteID>
+                <ServiceGroupID>SG7654</ServiceGroupID>
                 <WaitTime>Less than one day</WaitTime>
                 <ApplicationProcess>
                         <Title>Food Banks application process</Title>
                         <Description>Apply in person with in-State ID when food bank is open.</Description>
                 </ApplicationProcess>
+                <ResourceInfo>
+                        <Contact>
+                                <ID>9876</ID>
+                                <AgencyID>A7654</AgencyID>
+                                <ServiceID>SV3456</ServiceID>
+                                <Department>Program Management</Department>
+                                <Title>Senior Administrator</Title>
+                                <Name>David Clark</Name>
+                                <Nickname>Dave</Nickname>
+                                <ContactEmail>dave.clark@foodbankagency.org</ContactEmail>
+                                <ContactPhone>
+                                        <Phone>555-777-8888</Phone>
+                                        <Confidential>false</Confidential>
+                                        <ReasonWithheld>provide Reason if Confidential = true</ReasonWithheld>
+                                        <Description>provide Description if Confidential = true</Description>
+                                        <Type>Program Management main line</Type>
+                                        <Function>Program Management department phone</Function>
+                                        <TollFree>false</TollFree>
+                                        <Department>Program Management</Department>
+                                        <CountryPrefix>011</CountryPrefix>
+                                </ContactPhone>
+                                <ContactType>Program Manager</ContactType>
+                        </Contact>
+                        <ResourceSpecialist>Maureen Murphy</ResourceSpecialist>
+                        <AvailableForDirectory>true</AvailableForDirectory>
+                        <AvailableForReferral>true</AvailableForReferral>
+                        <AvailableForResearch>true</AvailableForResearch>
+                        <DateAdded>2011-08-13</DateAdded>
+                        <DateLastVerified>2011-08-13</DateLastVerified>
+                        <DateOfLastAction>2016-08-13</DateOfLastAction>
+                        <LastActionType>Updated</LastActionType>
+                </ResourceInfo>
         </Service>
         <SiteService>
                 <ID>SS6543</ID>
@@ -296,7 +328,7 @@
                 <Title>Food Bank</Title>
                 <Description>This site offers a food bank on Tuesdays.</Description>
                 <Phone>
-                        <Phone>(800) 777-8888</Phone>
+                        <Phone>800-777-8888</Phone>
                         <Confidential>false</Confidential>
                         <ReasonWithheld>Reason if confidential = true</ReasonWithheld>
                         <Description>Description if Confidential = true</Description>
@@ -316,7 +348,7 @@
                         <Nickname>Fred</Nickname>
                         <ContactEmail>fred.anderson@foodbank.org</ContactEmail>
                         <ContactPhone>
-                                <Phone>(800) 555-5555</Phone>
+                                <Phone>800-555-5555</Phone>
                                 <Confidential>false</Confidential>
                                 <ReasonWithheld>Reason if Confidential = true</ReasonWithheld>
                                 <Description>Description if Confidential = true</Description>
@@ -376,38 +408,6 @@
                         <Description>Serving Springfield County, UT and surrounding areas</Description>
                         <CustomAreaLabel>Springfield County area, UT</CustomAreaLabel>
                 </ServiceArea>
-                <ResourceInfo>
-                        <Contact>
-                                <ID>7654</ID>
-                                <AgencyID>A9876</AgencyID>
-                                <ServiceID>SV0987</ServiceID>
-                                <Department>Program Management</Department>
-                                <Title>Program Manager</Title>
-                                <Name>Avery Brown</Name>
-                                <Nickname>Avery</Nickname>
-                                <ContactEmail>avery.brown@foodbank.org</ContactEmail>
-                                <ContactPhone>
-                                        <Phone>(444) 888-9999</Phone>
-                                        <Confidential>true</Confidential>
-                                        <ReasonWithheld>Private number IT administrator</ReasonWithheld>
-                                        <Description>Private number IT administrator</Description>
-                                        <Type>Cell phone</Type>
-                                        <Function>IT adminstrator phone</Function>
-                                        <TollFree>false</TollFree>
-                                        <Department>Program Management</Department>
-                                        <CountryPrefix>011</CountryPrefix>
-                                </ContactPhone>
-                                <ContactType>IT Administrator/Program Manager</ContactType>
-                        </Contact>
-                        <ResourceSpecialist>Avery Brown</ResourceSpecialist>
-                        <AvailableForDirectory>true</AvailableForDirectory>
-                        <AvailableForReferral>true</AvailableForReferral>
-                        <AvailableForResearch>true</AvailableForResearch>
-                        <DateAdded>2015-08-13</DateAdded>
-                        <DateLastVerified>2015-08-13</DateLastVerified>
-                        <DateOfLastAction>2015-08-13</DateOfLastAction>
-                        <LastActionType>Added</LastActionType>
-                </ResourceInfo>
                 <InternetResource>
                         <Url>www.foodbankresource.org</Url>
                         <Description>Resource such as FTP, mailing list, other internet-based resource.  Describe.</Description>
@@ -437,6 +437,38 @@
                 <ResidencyRequirements>Must be resident of Utah</ResidencyRequirements>
                 <Status>active</Status>
                 <ServiceNotAlwaysAvailable>true</ServiceNotAlwaysAvailable>
+                <ResourceInfo>
+                        <Contact>
+                                <ID>7654</ID>
+                                <AgencyID>A9876</AgencyID>
+                                <ServiceID>SV0987</ServiceID>
+                                <Department>Program Management</Department>
+                                <Title>Program Manager</Title>
+                                <Name>Avery Brown</Name>
+                                <Nickname>Avery</Nickname>
+                                <ContactEmail>avery.brown@foodbank.org</ContactEmail>
+                                <ContactPhone>
+                                        <Phone>444-888-9999</Phone>
+                                        <Confidential>true</Confidential>
+                                        <ReasonWithheld>Private number IT administrator</ReasonWithheld>
+                                        <Description>Private number IT administrator</Description>
+                                        <Type>Cell phone</Type>
+                                        <Function>IT adminstrator phone</Function>
+                                        <TollFree>false</TollFree>
+                                        <Department>Program Management</Department>
+                                        <CountryPrefix>011</CountryPrefix>
+                                </ContactPhone>
+                                <ContactType>IT Administrator/Program Manager</ContactType>
+                        </Contact>
+                        <ResourceSpecialist>Avery Brown</ResourceSpecialist>
+                        <AvailableForDirectory>true</AvailableForDirectory>
+                        <AvailableForReferral>true</AvailableForReferral>
+                        <AvailableForResearch>true</AvailableForResearch>
+                        <DateAdded>2015-08-13</DateAdded>
+                        <DateLastVerified>2015-08-13</DateLastVerified>
+                        <DateOfLastAction>2015-08-13</DateOfLastAction>
+                        <LastActionType>Added</LastActionType>
+                </ResourceInfo>
         </SiteService>
         <ServiceGroup>
                 <ID>SG8765</ID>
@@ -458,7 +490,7 @@
                                 <Nickname>Mary</Nickname>
                                 <ContactEmail>mary.oleary@service.org</ContactEmail>
                                 <ContactPhone>
-                                        <Phone>(777) 555-9999</Phone>
+                                        <Phone>777-555-9999</Phone>
                                         <Confidential>false</Confidential>
                                         <ReasonWithheld>Provide reason if Confidential = true</ReasonWithheld>
                                         <Description>Provide description if Confidential = true</Description>
