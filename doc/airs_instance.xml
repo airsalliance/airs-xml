@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Source xmlns="http://www.airs.org/schema/4_0_0/AIRS.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" SourceEntity="String" SourceID="String" OriginTimestamp="2001-12-17T09:30:47Z" SoftwareVendor="String" SoftwareVersion="String" TaxonomyVersion="2001-12-17T09:30:47Z" SchemaVersion="String" xsi:schemaLocation="http://www.airs.org/schema/4_0_0/AIRS.xsd airs.xsd">
+<Source xmlns="http://www.airs.org/schema/4_0_0/AIRS.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" SourceEntity="String" SourceID="String" OriginTimestamp="2001-12-17T09:30:47Z" SoftwareVendor="AIRS" SoftwareVersion="4.0.0" TaxonomyVersion="String" SchemaVersion="String" xsi:schemaLocation="http://www.airs.org/schema/4_0_0/AIRS.xsd https://raw.githubusercontent.com/airsalliance/airs-xml/master/src/airs.xsd">
         <Agency>
                 <AgencyID>A1234</AgencyID>
                 <AgencyName>Sample Agency</AgencyName>
